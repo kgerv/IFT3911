@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>IFT 3911 - Hiv 2024</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+    <link rel="stylesheet" href="http://www-labs.iro.umontreal.ca/~syriani/cside/css/normalize.css">
+    <link rel="stylesheet" href="http://www-labs.iro.umontreal.ca/~syriani/cside/css/main.css">
+    <script src="http://www-labs.iro.umontreal.ca/~syriani/cside/js/vendor/modernizr-2.6.2.min.js"></script>
+
+    <link rel="stylesheet" href="http://www-labs.iro.umontreal.ca/~syriani/cside/css/uj.css">
+    <script type="application/javascript" src="http://www-labs.iro.umontreal.ca/~syriani/cside/js/main.js"></script>
+</head>
+<body>
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">
+    upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<!-- Add your site or application content here -->
+<div id="main" style="width: 95%;">
+    <div id="header">
+    </div>
+    <div id="title">
+        IFT 3911 - Hiv 2024<br>Devoir maison 1    </div>
+    <div id="content"><div class="box">
+<h1>Système de Réservation de Voyages</h1>
+
+<p>
+    Le but de ce devoir est de mettre en pratique vos techniques de conceptions orientées-objet.
+    Un des devoirs à venir vous demandera d'améliorer le design que vous produirez pour ce devoir.
+    <br/>
+    Vous devez concevoir un logiciel de gestion de réservation de voyages par avion, paquebot et train. Le système a un volet administratif et un volet client.
+    Nous simplifierons le système pour ne gérer que des voyages aller simple.
+    Les besoins fonctionnels sont décrits ici-bas.
+</p>
+
+<h2>1. Volet administratif</h2>
+
+<h3>1.1. Voyage aérien</h3>
+
+<h4>1.1.1. Création, modification et suppression d'aéroports</h4>
+
+<p>
+    Un aéroport est identifié par trois lettres uniques à chaque aéroport <i>[OCL]</i>.
+    Il est situé dans une ville dans le monde.</p>
+
+<h4>1.1.2. Création, modification et suppression de compagnies aériennes</h4>
+
+<p>
+    Une compagnie aérienne est identifiée par moins de six caractères uniques à chaque compagnie.
+</p>
+
+<h4>1.1.3. Création, modification et suppression de vol</h4>
+
+<p>
+    Un vol est associé à une compagnie aérienne, partant d'un aéroport d'origine jusqu'à un aéroport de destination, à une date et heure de départ.
+    Un vol est identifié par un ID qui commence par deux lettres suivi d'une série de chiffres.
+    La partie alphabétique de l'ID d'un vol est unique à chaque compagnie et la partie numérique est unique à chaque vol au sein de la même compagnie <i>[OCL]</i>.
+    L'aéroport de départ et d'arrivée d'un vol doit être différent <i>[OCL]</i>.
+</p>
+
+<h4>1.1.4. Création de sections d'un avion</h4>
+
+<p>
+    Les sections sont aussi connues sous le nom "classe". Des exemples de sections sont : Première (F), Affaire (A), Économique Premium (P), Économique (E).
+    Un avion contient 0 ou plus de sections, mais une fois la même section.
+    Un avion comporte des sièges organisés en maximum 100 rangées et 10 colonnes.
+    Chaque siège est identifié par sa section (F, A, P, E), son numéro de rangée et la lettre de la colonne (A-J).
+    Les sièges peuvent être disposés selon quatre possibilités au sein d'une section :
+</p>
+<ul>
+    <li>Étroit (S) : trois colonnes avec une aile entre les colonnes 1 et 2</li>
+    <li>Confort (C) : quatre colonnes avec une aile entre les colonnes 2 et 3</li>
+    <li>Moyen (M) : six colonnes avec une aile entre 3 et 4</li>
+    <li>Large (L) : dix colonnes avec une aile entre les colonnes 3 et 4, et entre 7 et 8</li>
+</ul>
+
+<h4>1.1.5. Assignation des prix</h4>
+
+<p>
+    Tous les sièges d'une même section ont le même prix <i>[OCL]</i>.
+    Le prix varie d'une compagnie à l'autre.
+    Le prix pour F est 100% du plein tarif, A est 75% du plein tarif, P est 60% du plein tarif et E est 50% du plein tarif.
+    Il n'y a pas de taxe.
+</p>
+
+<h4>1.1.6. Consultation</h4>
+
+<p>
+    Le système affiche tous les vols qui partent et qui arrivent à un aéroport en montrant tous les détails de
+    chaque vol.
+    Le système affiche tous les vols effectués par une compagnie aérienne en montrant tous les détails de chaque
+    vol.
+</p>
+
+<h3>1.2. Voyage naval</h3>
+
+Comme pour le voyage aérien sauf indication contraire comme suit.
+
+<h4>1.2.1. Création, modification et suppression de ports</h4>
+
+<p>
+    Un port est identifié par trois lettres uniques à chaque port <i>[OCL]</i>.
+    Il est situé dans une ville dans le monde.
+</p>
+
+<h4>1.2.2. Création, modification et suppression de compagnies de croisière</h4>
+
+<p>
+    Une compagnie de croisière est identifiée par moins de six caractères uniques à chaque compagnie.
+</p>
+
+<h4>1.2.3. Création, modification et suppression d'itinéraire</h4>
+
+<p>
+    Une compagnie de croisière fournit plusieurs itinéraires, avec dates et heures de départ et d'arrivée.
+    Un itinéraire ne peut pas durer plus de 21 jours <i>[OCL]</i>.
+    Chaque itinéraire visite une suite de ports fixes.
+    Le port de départ et d'arrivée doit être le même <i>[OCL]</i>.
+    Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas <i>[OCL]</i>.
+</p>
+
+<h4>1.2.4. Création de sections d'un paquebot</h4>
+
+<p>
+    Tous les paquebots contiennent les sections suivantes :
+</p>
+<ul>
+    <li>Intérieure (I) : jusqu'à quatre personnes</li>
+    <li>Vue sur l'Océan (O) : jusqu'à deux personnes</li>
+    <li>Suite (S) : jusqu'à cinq personnes</li>
+    <li>Famille (F) et Famille Deluxe (D) : jusqu'à six personnes</li>
+</ul>
+<p>
+    Chaque section comporte un certain nombre de cabines qui peut varier par paquebot.
+</p>
+
+<h4>1.2.5. Consultation</h4>
+
+<p>
+    Le système affiche tous les itinéraires qui partent d'un port en montrant tous les détails de chaque itinéraire.
+    Le système affiche tous les itinéraires effectués par une compagnie de croisière en montrant tous les détails de chaque itinéraire.
+</p>
+
+<h4>1.2.6. Assignation des prix</h4>
+
+<p>Toutes les cabines d'une même section ont le même prix <i>[OCL]</i>.
+    Le prix varie d'une compagnie à l'autre.
+    Le prix pour D est 100% du plein tarif, pour F et S est 90% du plein tarif, pour O est 75% du plein tarif et
+    pour I est 50% du plein tarif.
+</p>
+
+<h3>1.3. Voyage ferroviaire</h3>
+
+Comme pour le voyage aérien sauf indication contraire comme suit.
+
+<h4>1.3.1. Création, modification et suppression de gares</h4>
+
+<p>
+    Une gare est identifiée par trois lettres uniques à chaque gare <i>[OCL]</i>.
+    Elle est située dans une ville dans le monde.</p>
+
+<h4>1.3.2. Création, modification et suppression de lignes de train</h4>
+
+<p>
+    Une ligne de train est identifiée par moins de six caractères uniques à chaque ligne.
+</p>
+
+<h4>1.3.3. Création, modification et suppression de trajets</h4>
+
+<p>
+    Une ligne de train fournit plusieurs trajets, avec dates et heures de départ et d'arrivée.
+    Chaque trajet visite une suite de gares fixes.
+</p>
+
+<h4>1.3.4. Création de sections d'un train</h4>
+
+<p>
+    Tous les trains contiennent une section Première (P) et une section Économie (E).
+    Dans chaque section, la disposition des sièges de train est Étroit (S). Voir les sections d'avions pour plus d'information.
+</p>
+
+<h2>2. Volet client</h2>
+
+<h3>2.1. Voyage aérien et ferroviaire</h3>
+
+<h4>2.1.1. Vérification des vols disponibles</h4>
+
+<p>
+    Le client peut rechercher tous les vols (trajets) d'un aéroport (gare) d'origine à une destination avec des sièges libres, à une date donnée, pour une classe donnée.
+    Le système affiche la liste des vols trajets) avec le détail pour chacun : date et heure de départ, durée du vol (trajet), heure d'arrivée, compagnie aérienne (ferroviaire), numéro du vol (trajet), prix, nombre de sièges disponibles pour la section.
+</p>
+
+<h4>2.1.2. Réservation de siège</h4>
+
+<p>
+    Le client peut réserver un siège disponible dans un vol (trajet) donné <i>[OCL]</i>.
+    Il a l'option de choisir une priorité entre l'aile ou la fenêtre.
+    Un numéro de réservation est fourni au client.
+    Un siège réservé n'est plus disponible à un autre passager.
+    Un siège est réservé pendant 24 heures, après quoi il redevient disponible.
+</p>
+
+<h4>2.1.3. Paiement d'un siège</h4>
+
+<p>
+    Le client peut payer pour son siège réservé avec le numéro de réservation.
+    Le client entre ses informations personnelles : noms, courriel, numéro de passeport.
+    Le client effectue le paiement par carte de crédit.
+    Une confirmation de paiement est produite.
+    Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé <i>[OCL]</i>.
+</p>
+
+<h3>2.2. Voyage naval</h3>
+
+Comme pour le voyage aérien sauf indication contraire comme suit.
+
+<h4>2.2.1. Vérification des cabines disponibles</h4>
+
+<p>
+    Le client peut rechercher tous les itinéraires d'un port d'origine avec des cabines disponibles, à une date donnée, pour une classe donnée.
+    Le système affiche la liste des itinéraires avec le détail pour chacun : date, durée total, compagnie de croisière, numéro de l'itinéraire, prix, nombre de cabines disponibles pour la section.
+</p>
+
+<h4>2.2.2. Réservation de cabine</h4>
+
+<p>
+    Le client peut réserver une cabine disponible pour un itinéraire donné <i>[OCL]</i>.
+    Un numéro de réservation est fourni au client.
+    Une cabine réservée n'est plus disponible à un autre passager.
+    Une cabine est réservée pendant 24 heures, après quoi elle redevient disponible.
+</p>
+
+<h4>2.2.3. Paiement d'une cabine</h4>
+
+<p>
+    Le client peut payer pour sa cabine réservée avec le numéro de réservation.
+    Les mêmes règles que pour l'avion s'appliquent.
+</p>
+
+<h1>Tâches</h1>
+
+<ol>
+    <li>
+        Analysez les besoins et produisez une conception du domaine : diagramme de classe conceptuel et diagrammes de séquence système.
+        Vous êtes fortement encouragés à élaborer des cas d'utilisation et scénarios, même s'ils ne seront pas pris en compte dans l'évaluation. 
+        Si vous avez des questions sur les hypothèses, posez-les sur le forum de question dans StudiUM.
+        Vous serez également évalué sur l'utilisation appropriée d'éléments UML.
+    </li>
+    <li>
+        À partir du modèle du domaine, produisez le design du logiciel : diagramme de classe logiciel, diagramme de séquence ou de collaboration et diagramme de paquets.
+        Portez une attention particulière sur, entre autres : le nom des classes, associations et paquets, la visibilité et type des attributs, la visibilité et signature des opérations, les rôles, les cardinalités et les types d'associations.
+        Montrez uniquement les diagrammes de séquence/collaboration pour les actions client : vérifier les vols/lignes/itinéraires, réserver un siège et payer un siège. Chaque membre de l'équipe doit être responsable d'un diagramme de séquence. Identifiez clairement le responsable.
+    </li>
+    <li>
+        Rédigez, en OCL, les contraintes précédent la mention <i>[OCL]</i> dans l'énoncé. Notez qu'il peut y avoir la même contrainte pour différents modes de voyage. Dans ce cas, assurez-vous d'avoir une seule même contrainte pour tous les modes de voyage quand c'est possible. Les contraintes pour la réservation et le paiement doivent être formulées comme pré et postconditions des opérations <code>réserver()</code> et <code>payer()</code>.
+    </li>
+    <li>
+        Justifiez toutes les décisions que vous jugez nécessaires pour que le correcteur comprenne les raisons derrière votre design et vous évalue en conséquence.
+        Indiquez la raison d'utilisation d'une classe logiciel, par exemple : règle du créateur, expert, couplage, cohésion, etc.
+    </li>
+</ol>
+
+<h1>Barème</h1>
+
+<ul>
+    <li>Modèle de conception du domaine [30%] :
+        <ul>
+            <li>Diagramme de classe conceptuel [20%]</li>
+            <li>Diagrammes de séquence système (un par scénario identifié) [10%]</li>
+        </ul>
+    </li>
+    <li>Design logiciel [70%] :
+        <ul>
+            <li>Diagramme de classe [25%]</li>
+            <li>Diagrammes de séquence ou de collaboration [15%]</li>
+            <li>Diagramme de paquets [5%]</li>
+            <li>Contraintes OCL [15%]</li>
+            <li>Justifications [10%]</li>
+        </ul>
+    </li>
+</ul>
+<p>
+    Téléversez toutes les images, fichiers source, fichiers de données, projet vpp, et y faire référence dans le rapport.
+    Le fichier ZIP doit comprendre deux dossiers : Domaine et Design.</p>
+
+<h1>Ressources supplémentaires</h1>
+
+<p>
+    Vous devez utiliser <a href="https://ap.visual-paradigm.com/university-of-montreal">Visual Paradigm</a> pour tous les diagrammes UML.
+    Vous pouvez le télécharger et l'installer.
+    La clé pour la licence est disponible sur StudiUM.
+</p>
+
+<h1>Informations pratiques</h1>
+
+<p>Le devoir vaut 13% de la note finale.</p>
+
+<p>Voir la date de remise sur StudiUM à 23h55. Tout retard engendrera une pénalité de 5% par jour pour un maximum de deux jours.</p>
+
+<p>
+    Le devoir est à faire en équipe d'au plus trois.
+</p>
+
+<p>
+    La remise du devoir est un fichier ZIP qui comprend un fichier HTML simple (rapport.htm) ainsi que tous les fichiers additionnels nécessaires (.jpg, .java, .txt, .vpp, tous les autres fichiers que vous voulez remettre).
+    Le rapport doit faire référence de manière explicite à tous les fichiers et inclure toutes les images directement visibles sur la page.
+    Vous devez inscrire dans l'entête du rapport : le nom de tous les membres de votre équipe, les quatre derniers chiffres de vos matricules, vos courriels et le temps mis par chaque membre sur le devoir (pour des raisons statistiques uniquement).
+    Votre solution doit être incluse en entier dans le body du rapport. Inscrivez toutes vos hypothèses.
+    Puis décrivez votre solution pour chaque tâche sous forme de rapport.
+</p>
+
+<p>
+    De plus, le rapport doit inclure une section Distribution des tâches.
+    Cette section doit énumérer toutes les tâches accomplies et le pourcentage de contribution de chaque membre par tâche.
+    Si les pourcentages ne sont pas plus ou moins égaux, la note peut différer d'un membre à l'autre.
+    <a href="http://www-labs.iro.umontreal.ca/~syriani/courses/rapport.htm">Vous pouvez trouver un exemple du rapport ici</a>.
+</p>
+
+<p>
+    Une seule personne par équipe remet le devoir complet sur StudiUM.
+    Les autres membres doivent uniquement soumettre le fichier rapport avec les noms et la distribution des tâches (ce n'est pas grave si les images n'apparaissent pas ou si les liens ne fonctionnent pas).
+    Indiquez la personne qui soumet le devoir complet.
+</p>
+
+<p>
+    Omettre le rapport engendrera une pénalité de 5%.
+</p>
+</div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-52916909-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</body>
+</html>
