@@ -27,7 +27,7 @@
         }
         .extension dt
         {
-            padding-left: 25px;
+            margin-left: 25px;
         }
         dl.extension > ol
         {
@@ -142,35 +142,68 @@
         Tâche 1</h2>
 
     <p class="todo">
-        <u>Scénario pour la suppression d'une compagnie aerienne:</u>
-        <ol>
-            <li>L'administrateur choisit l'option "Gestion des compagnies aériennes" dans le menu principal</li>
-            <li>L'administrateur choisit l'option "Supprimer une compagnie aérienne"</li>
-            <li>Le système demande de rentrer le nom de la compagnie aérienne à supprimer ou de la choisir parmi la liste affichée</li>
-            <li>L'administrateur choisit la compagnie aérienne à supprimer ou rentre son nom</li>
-            <li>Le système affiche les données de la compagnie aérienne correspondante et demande à l'administrateur de confirmer la suppression de celle-ci</li>
-            <li>L'administrateur confirme la suppression à l'aide de l'option "supprimer"</li>
-            <li>Le système affiche un message de confirmation de la suppression de la compagnie aérienne</li>
-            <li>L'administrateur ferme le message de confirmation à l'aide de l'option "ok"</li>
-            <li>Le système retourne à l'étape 3.</li>
-        </ol>
-        <u>Extensions:</u>
+        <ul>
+            <li>
+                <u>Scénario pour la suppression d'une compagnie aerienne:</u>
+                <ol>
+                    <li>L'administrateur choisit l'option "Gestion des compagnies aériennes" dans le menu principal</li>
+                    <li>L'administrateur choisit l'option "Supprimer une compagnie aérienne"</li>
+                    <li>Le système demande de rentrer le nom de la compagnie aérienne à supprimer ou de la choisir parmi la liste affichée</li>
+                    <li>L'administrateur choisit la compagnie aérienne à supprimer ou rentre son nom</li>
+                    <li>Le système affiche les données de la compagnie aérienne correspondante et demande à l'administrateur de confirmer la suppression de celle-ci</li>
+                    <li>L'administrateur confirme la suppression à l'aide de l'option "supprimer"</li>
+                    <li>Le système affiche un message de confirmation de la suppression de la compagnie aérienne</li>
+                    <li>L'administrateur ferme le message de confirmation à l'aide de l'option "ok"</li>
+                    <li>Le système retourne à l'étape 3.</li>
+                </ol>
 
-        <dl class="extension">
-            <dt>4a. Le nom de compagnie aérienne rentré par l'administrateur n'est pas dans le système:</dt>
-            <ol>
-                <li>Le système affiche un message d'erreur contenant l'entrée de l'administrateur</li>
-                <li>L'administrateur ferme le message d'erreur à l'aide de l'option "ok"</li>
-                <li>Retour à l'étape 3.</li>
-            </ol>
+                <u>Extensions:</u>
+                <dl class="extension">
+                    <dt>4a. Le nom de compagnie aérienne rentré par l'administrateur n'est pas dans le système:</dt>
+                    <ol>
+                        <li>Le système affiche un message d'erreur contenant l'entrée de l'administrateur</li>
+                        <li>L'administrateur ferme le message d'erreur à l'aide de l'option "ok"</li>
+                        <li>Retour à l'étape 3.</li>
+                    </ol>
+                    <br/>
+                    <dt>6a. L'administrateur ne veut pas supprimer cette compagnie aérienne:</dt>
+                    <ol>
+                        <li>L'administrateur utilise l'option "retour"</li>
+                        <li>Le système retourne à l'étape 3.</li>
+                    </ol>
+                </dl>
+            </li>
             <br/>
-            <dt>6a. L'administrateur ne veut pas supprimer cette compagnie aérienne:</dt>
-            <ol>
-                <li>L'administrateur utilise l'option "retour"</li>
-                <li>Le système retourne à l'étape 3.</li>
-            </ol>
-        </dl>
+            <li>
+                <u>Scénario pour la vérification des vols/trajets/itinéraires:</u>
+                <ol>
+                    <li>Le client choisit l'option "Vérification des vols" dans le menu principal</li>
+                    <li>Le système lui demande de rentrer l'aéroport d'origine</li>
+                    <li>Le client fournit l'aéroport de départ</li>
+                    <li>Le système lui demande de rentrer la destination</li>
+                    <li>Le client fournit la destination</li>
+                    <li>Le système affiche la liste des vols correspondants et les détails de ceux-ci: date et heure de départ, durée du vol, heure d'arrivée, compagnie aérienne, numéro du vol, prix, nombre de sièges disponibles pour la section</li>
+                </ol>
 
+                <u>Extensions:</u>
+                <dl class="extension">
+                    <dt>3a. ou 5a. L'aéroport n'est pas dans le système:</dt>
+                    <ol>
+                        <li>Le système affiche un message d'erreur contenant l'entrée du client</li>
+                        <li>Le client ferme le message d'erreur à l'aide de l'option "ok"</li>
+                        <li>Retour à l'étape 2. ou 4.</li>
+                    </ol>
+                    <br/>
+                    <dt>6a. Il n'y a pas de vols correspondants à la recherche</dt>
+                    <ol>
+                        <li>Le système affiche un message indiquant qu'il n'a pas trouvé de vols correspondants à la recherche du client</li>
+                        <li>Le système retourne à l'étape 2.</li>
+                    </ol>
+                </dl>
+                <br/>
+                <i>Note: Le scénario pour la vérification des trajets est obtenu en changeant vol par trajet, aéroport par gare et aérienne par ferroviaire.</i>
+            </li>
+        </ul>
     </p>
 
     <ul class="todo">
