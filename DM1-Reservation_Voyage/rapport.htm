@@ -25,6 +25,14 @@
         {
             color: red;
         }
+        .extension dt
+        {
+            padding-left: 25px;
+        }
+        dl.extension > ol
+        {
+            margin-left: 25px;
+        }
     </style>
 </head>
 
@@ -79,10 +87,13 @@
                     Tâche
                 </th>
                 <th>
-                    Eugene
+                    Killian
                 </th>
                 <th>
-                    John
+                    Roman
+                </th>
+                <th>
+                    Tobias
                 </th>
             </tr>
         </thead>
@@ -98,6 +109,9 @@
                 <td>
                     Methodes, contraintes (50%)
                 </td>
+                <td>
+                    Methodes, contraintes (50%)
+                </td>
             </tr>
 
             <tr>
@@ -106,6 +120,9 @@
                 </td>
                 <td>
                     GUI (30%)
+                </td>
+                <td>
+                    Logique (70%)
                 </td>
                 <td>
                     Logique (70%)
@@ -125,7 +142,35 @@
         Tâche 1</h2>
 
     <p class="todo">
-        Voici ma solution pour la tâche 1.
+        <u>Scénario pour la suppression d'une compagnie aerienne:</u>
+        <ol>
+            <li>L'administrateur choisit l'option "Gestion des compagnies aériennes" dans le menu principal</li>
+            <li>L'administrateur choisit l'option "Supprimer une compagnie aérienne"</li>
+            <li>Le système demande de rentrer le nom de la compagnie aérienne à supprimer ou de la choisir parmi la liste affichée</li>
+            <li>L'administrateur choisit la compagnie aérienne à supprimer ou rentre son nom</li>
+            <li>Le système affiche les données de la compagnie aérienne correspondante et demande à l'administrateur de confirmer la suppression de celle-ci</li>
+            <li>L'administrateur confirme la suppression à l'aide de l'option "supprimer"</li>
+            <li>Le système affiche un message de confirmation de la suppression de la compagnie aérienne</li>
+            <li>L'administrateur ferme le message de confirmation à l'aide de l'option "ok"</li>
+            <li>Le système retourne à l'étape 3.</li>
+        </ol>
+        <u>Extensions:</u>
+
+        <dl class="extension">
+            <dt>4a. Le nom de compagnie aérienne rentré par l'administrateur n'est pas dans le système:</dt>
+            <ol>
+                <li>Le système affiche un message d'erreur contenant l'entrée de l'administrateur</li>
+                <li>L'administrateur ferme le message d'erreur à l'aide de l'option "ok"</li>
+                <li>Retour à l'étape 3.</li>
+            </ol>
+            <br/>
+            <dt>6a. L'administrateur ne veut pas supprimer cette compagnie aérienne:</dt>
+            <ol>
+                <li>L'administrateur utilise l'option "retour"</li>
+                <li>Le système retourne à l'étape 3.</li>
+            </ol>
+        </dl>
+
     </p>
 
     <ul class="todo">
