@@ -261,65 +261,65 @@
             <li>Une installation (aéroport, port, gare) est identifié par trois lettres uniques à chaque installation</li>
             <pre>
                 <code>
-                    context Installation
-                      inv: Installation.allInstances()->forAll(c1, c2 |
-                            c1 <> c2 implies <> c1.code <> c2.code)
+                    context Installation inv:
+                        Installation.allInstances()->forAll(c1, c2 |
+                            (c1 <> c2 and c1.oclIsKindOf(c2.OclType())) implies c1.code <> c2.code)
                 </code>
             </pre>
 
             <li>La partie alphabétique de l'ID d'un vol est unique à chaque compagnie et la partie numérique est unique à chaque vol au sein de la même compagnie</li>
             <pre>
                 <code>
-
+                    context Vol
+                        inv: 
                 </code>
             </pre>
 
             <li>L'aéroport de départ et d'arrivée d'un vol doit être différent</li>
             <pre>
                 <code>
-                    
+                    context DescriptionVol inv:
+                        self.origine <> self.destination
                 </code>
             </pre>
             
-            <li>Tous les sièges d'une même section ont le même prix</li>
+            <li>Tous les emplacements (sièges, cabines) d'une même section ont le même prix</li>
             <pre>
                 <code>
-                    
-                </code>
-            </pre>
-            
-            <li>Toutes les cabines d'une même section ont le même prix</li>
-            <pre>
-                <code>
-                    
+                    context Section::listeEmplacement
+                        self.allInstances()->forAll(e1, e2 | e1.prix = e2.prix)
                 </code>
             </pre>
 
             <li>Un itinéraire ne peut pas durer plus de 21 jours</li>
             <pre>
                 <code>
-                    
+                    context DescriptionItineraireMarin inv:
+                        self.duree <= 21
                 </code>
             </pre>
 
             <li>Le port de départ et d'arrivée doit être le même</li>
             <pre>
                 <code>
-                    
+                    context DescriptionItineraireMarin inv:
+                        self.origine = self.destination
                 </code>
             </pre>
 
             <li>Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas</li>
             <pre>
                 <code>
-                    
+                    context Croisiere inv:
+                        Croisiere.allInstances()->forAll(c1, c2 | c1 <> c2)
                 </code>
             </pre>
             
             <li>Le client peut réserver un siège disponible dans un vol (trajet) donné</li>
             <pre>
                 <code>
-                    
+                    context Reservation
+                        
                 </code>
             </pre>
 
@@ -333,7 +333,9 @@
             <li>Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé</li>
             <pre>
                 <code>
-                    
+                    context Reservation inv:
+                        if self.estPaye()
+                        then self.emplacement.attitreA = self.client
                 </code>
             </pre>
         </ul>
