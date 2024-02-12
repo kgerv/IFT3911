@@ -54,21 +54,21 @@
     </p>
 
     <p class=""todo>
-        <span style="font-weight: bold;">Nom: </span>John Smith
+        <span style="font-weight: bold;">Nom: </span>Roman Gilles-Lesage
         <br />
-        <span style="font-weight: bold;">Matricule: </span>5678
+        <span style="font-weight: bold;">Matricule: </span>20175122
         <br />
-        <span style="font-weight: bold;">Courriel: </span>john.smith@something.com
+        <span style="font-weight: bold;">Courriel: </span>roman.gilles-lesage@umontreal.ca
         <br />
-        <span style="font-weight: bold;">temps mis: </span>40 heures
+        <span style="font-weight: bold;">temps mis: </span>40 heures 
     </p>
 
     <p class=""todo>
-        <span style="font-weight: bold;">Nom: </span>John Smith
+        <span style="font-weight: bold;">Nom: </span>Tobias Lepoutre
         <br />
-        <span style="font-weight: bold;">Matricule: </span>5678
+        <span style="font-weight: bold;">Matricule: </span>XXX
         <br />
-        <span style="font-weight: bold;">Courriel: </span>john.smith@something.com
+        <span style="font-weight: bold;">Courriel: </span>tobias.lepoutre@umontreal.ca
         <br />
         <span style="font-weight: bold;">temps mis: </span>40 heures
     </p>
@@ -77,7 +77,7 @@
         Distribution des tâches</h2>
 
     <p class="todo">
-        <span style="font-weight: bold;">Soumetteur: </span>XXXXXXX
+        <span style="font-weight: bold;">Soumetteur: </span>Roman Gilles-Lesage 
     </p>
 
     <table class="todo" scellpadding="7px">
@@ -99,33 +99,50 @@
         </thead>
 
         <tbody>
+            
+
             <tr>
                 <td class="first_col">
-                    Diagramme de classe
+                    Définition du domaine
                 </td>
                 <td>
-                    Classes, associations, attributs (50%)
+                    40%
                 </td>
                 <td>
-                    Methodes, contraintes (50%)
+                    30%
                 </td>
                 <td>
-                    Methodes, contraintes (50%)
+                    30%
                 </td>
             </tr>
 
             <tr>
                 <td class="first_col">
-                    Implémentation
+                    Diagramme de classe
                 </td>
                 <td>
-                    GUI (30%)
+                    33%
                 </td>
                 <td>
-                    Logique (70%)
+                    33%
                 </td>
                 <td>
-                    Logique (70%)
+                    33%
+                </td>
+            </tr>
+
+            <tr>
+                <td class="first_col">
+                    Diagramme de séquence
+                </td>
+                <td>
+                    33%
+                </td>
+                <td>
+                    33%
+                </td>
+                <td>
+                    33%
                 </td>
             </tr>
         </tbody>
@@ -249,6 +266,52 @@
     <h2 class="todo">
         Tâche 2</h2>
 
+    <h2>Justifications</h2>
+    <h3>Diagramme de classe domaine</h3>
+    <ul>
+        
+        <li>Description trajet : Change a DescriptionTrajet car cela correspond plus que Trajet
+
+            date et heureDepart  sont combine grace au format de Date en java
+            
+            dateArrivee devient dateArrivee pour constance
+            
+            duree est derivee de dateDepart et dateArrivee
+            
+            nomCompagnie change a compagnie de type Compagnie pour faciliter acces aux informations de cette derniere
+            
+            on ne considere pas idTrajet comme un attribut derivee meme s'il depend partiellement de compagnie
+            
+            on ommet les getters et setters que l'on considere necessaire par soucis d'espace mais ceux-ci doivent etre present dans l'implementation</li>
+        <li>Installations : ajout de nom et de pays pour une meilleure precision de l'objet en question</li>
+        <li>Section : heritage au lieu d'enum, permet plus de flexibilite dans la generalisation</li>
+        <li>Siege : position allee ou fenetre implicite par colonne
+
+            Avion: nb siege max est une constante
+            
+            Heritage pour type de siege, meme logique que pour les sections</li>
+    </ul>
+    <h3>Diagrammes de séquences</h3>
+    <h4>Vérifier trajet</h4>
+    <ul>
+        <li>chercher trajet retourne les trajets correspondants à origine,destination et date
+            la boucle s'occupe de savoir lesquels ont
+            encore des places libres
+        <li>On cherche à savoir quels sont les trajets disponibles et qui 
+            ont encore de la place. La méthode isBooked permet de ne renvoyer que les trajets qui en ont</li>
+        
+    </ul>
+    <h4>Réserver siège  / emplacement</h4>
+    <ul>
+        
+        <li>On considère que la réservation a déjà été faite, le client n'a qu'a sélectionner le siège puisque il y'en a dans la section choisie</li>
+        <li>L'emplacement devient available lorsque sélectionné</li>
+    </ul>
+    <h4>Payer trajet</h4>
+    <ul>
+        
+        
+    </ul>
     <p class="todo">
         ...
     </p>
