@@ -248,6 +248,52 @@
 
     <h2 class="todo">
         Tâche 2</h2>
+        <h2>Justifications</h2>
+    <h3>Diagramme de classe domaine</h3>
+    <ul>
+        
+        <li>Description trajet : Change a DescriptionTrajet car cela correspond plus que Trajet
+
+            date et heureDepart  sont combine grace au format de Date en java
+            
+            dateArrivee devient dateArrivee pour constance
+            
+            duree est derivee de dateDepart et dateArrivee
+            
+            nomCompagnie change a compagnie de type Compagnie pour faciliter acces aux informations de cette derniere
+            
+            on ne considere pas idTrajet comme un attribut derivee meme s'il depend partiellement de compagnie
+            
+            on ommet les getters et setters que l'on considere necessaire par soucis d'espace mais ceux-ci doivent etre present dans l'implementation</li>
+        <li>Installations : ajout de nom et de pays pour une meilleure precision de l'objet en question</li>
+        <li>Section : heritage au lieu d'enum, permet plus de flexibilite dans la generalisation</li>
+        <li>Siege : position allee ou fenetre implicite par colonne
+
+            Avion: nb siege max est une constante
+            
+            Heritage pour type de siege, meme logique que pour les sections</li>
+    </ul>
+    <h3>Diagrammes de séquences</h3>
+    <h4>Vérifier trajet</h4>
+    <ul>
+        <li>chercher trajet retourne les trajets correspondants à origine,destination et date
+            la boucle s'occupe de savoir lesquels ont
+            encore des places libres
+        <li>On cherche à savoir quels sont les trajets disponibles et qui 
+            ont encore de la place. La méthode isBooked permet de ne renvoyer que les trajets qui en ont</li>
+        
+    </ul>
+    <h4>Réserver siège  / emplacement</h4>
+    <ul>
+        
+        <li>On considère que la réservation a déjà été faite, le client n'a qu'a sélectionner le siège puisque il y'en a dans la section choisie</li>
+        <li>L'emplacement devient available lorsque sélectionné</li>
+    </ul>
+    <h4>Payer trajet</h4>
+    <ul>
+        
+        
+    </ul>
 
     <p class="todo">
         ...
@@ -311,14 +357,20 @@
             <pre>
                 <code>
                     context Croisiere inv:
-                        Croisiere.allInstances()->forAll(c1, c2 | c1 <> c2)
+                        Croisiere.allInstances()->forAll(c1, c2 | 
+                            c1 <> c2 and c1.Assigne-a = c2.Assigne-A implies
+                                (c1.dateArrivee <= c2.dateDepart or c1.dateDepart >= c2.dateArrivee))
                 </code>
             </pre>
             
             <li>Le client peut réserver un siège disponible dans un vol (trajet) donné</li>
             <pre>
                 <code>
-                    context Reservation
+                    context Emplacement
+                        if self.disponible = true
+                        then (t:Trajet, r:Reservation | r.reserverTajet(t) = true)
+                        else false
+                        endif 
                         
                 </code>
             </pre>
