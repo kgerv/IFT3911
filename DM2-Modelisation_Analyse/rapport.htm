@@ -167,6 +167,35 @@
     <h2>Hypothèses</h2>
     <div>
         <h2>Tâche 1 - Réseau de Pétri</h2>
+                <p>
+            Modélisation du réseau de Pétri réalisé avec PIPE(v4.3.0) :
+        </p>
+        <img src="Reseau_Petri.png" alt="Réseau de Pétri: Tunnel" width="800">
+        </b>
+        <p>
+            Analyse du réseau de Pétri :
+        </p>
+        <pre>
+On remarque que les places P3(tunnel1) et P6(tunnel2), représentant dont les voitures des voies 1 et 2,
+suivent la loi de conservation M(P3(tunnel1)) + M(P6(tunnel2)) = K, où K est inférieure ou égale à 1.
+En effet, à l'état initial, on a K=0, puis le modèle suit la séquence de franchissement déterminée <T1,T2,T3,T4>
+de façon cyclique tels que:
+- T1 ajoute un jeton à P3: K=1
+- T2 retire un jeton de P3: K=0
+- T3 ajoute un jeton à P6: K=1
+- T4 retire un jeton à P6: K=0 (et ainsi de suite...)
+Donc on en déduit que seule une voiture peut être à l'intérieur du tunnel à la fois.
+        </pre>
+        <p>Le système semble équitable. On vérifie cela en dressant le graphe de couverture :</p>
+        <img src="Graphe_couverture.png" alt="Réseau de Pétri: Tunnel" width="500">
+        <pre>
+Effectivement, le système est équitable puisque ce graphe de couverture confirme le fait qu'il y a une alternance
+effectuée entre chaque coté du tunnel ne laissant passer qu'une voiture à chaque fois. De plus, cela est toujours vrai 
+aussi longtemps que le tunnel respecte ce système cyclique déterminé.
+
+Ainsi, puisque ce réseau ne rencontre jamais de blocage et qu'il peut activer ses transitions indéfiniment,
+on en déduit qu'il n'y a pas de famine dans le réseau.
+        </pre>
     </div>
 
     <div>
