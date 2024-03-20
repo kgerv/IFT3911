@@ -214,8 +214,56 @@ on en déduit qu'il n'y a pas de famine dans le réseau.
         <h2>Tâche 3 - Révision du design</h2>
 
         <div>
+            <h3>Hypothèses</h3>
+            <ul>
+                <li>Client possède au moins une carte de crédit</li>
+                <li></li>
+                <li></li>
+            </ul>
+
             <h3>Diagramme de classe</h3>
             <img src="" alt="Diagramme de classe révisé">
+            <ul>
+                <li>rajout de id siege?</li>
+                <li>fusion Trajet et DescriptionTrajet? Non, retour au modele du diagramme conceptuel; idTrajet:String l'id represente un trajet (origine, depart, autresArrets), le trajet est la realisation de cette itineraire a une certaine date; ajout prix de base trajet pas DescriptionTrajet car peut dependre de la date, ajout id trajet</li>
+                <li>etat dans emplacmeent? deja la?</li>
+                <li>dispo siege dans section (f,a,p,e) comme attr: classes devienennt literal d'un enum; que faire de MAX_COL MAX_RANG?</li>
+                <li>retire ConfirmationPaiement, numConf devient attr de PaiementCredit</li>
+                <li>ajout Admin</li>
+                <li>prix d'emplacement delete, seulement dans Section. /prix car calcule ne fct de prix:Trajet?</li>
+                <li>ajout GUI</li>
+                <li>delete CatalogueTYPE</li>
+                <li>Vehicule.listeSection -> Vehicule.sections; Vehicule.checkSection() -> Vehicule.getSection(); Vehicule.getVehicule() -> Vehicule.getImmatriculation;</li>
+                <li>Reservation.getResDetails():DescriptionTrajet -> :String; on veut plus que juste le tarjet; va probablement go dans un controlleur</li>
+                <li>pas de lien entre AdminController - Trajet car dernier peut etre retrouver via DescriptionTrajet</li>
+                <li>ajout de controleurs; certaines classes (Client, Reservation,...) agissaient comme controleur en plus d'etre une represenation d'un objet</li>
+                <li>deplace MAX_COL/RANG de siege a SectionSiege, creer pour modularite, car propriete de la section</li>
+                <li>ajout SectionCabine pour modularite </li>
+                <li></li>
+                <li>Abstraites: Compagnie, DescriptionTrajet, Installation, Trajet, Vehicule, Section, SectionCabine, SectionSiege, Emplacement</li>
+                <li>Catalogue cree DescriptionTrajet et Trajet</li>
+                <li>ajout BDController: lien BD et Catalogue</li>
+                <li>ajout vehicule a Trajet</li>
+                <li>Emplacement: attitreA:Client -> :Reservation, plus logique pour quand place est dispo</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <h1>Questions</h1>
+            <ul>
+                <li>difference sendRes:ConfPai et send:PaiCred?</li>
+                <li>Client.recu(..., ..., nomClient) meme chose pour Client.ticket</li>
+                <li>Reservation.getPrix(), Reservation.setAvailable(); confirmerRes vs bloquerRes?</li>
+                <li>Emplacement.setEmplacement()?</li>
+                <li>Section.isBooked()?</li>
+                <li>Catalogue.verificationEntrees()?</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
 
         <div>
