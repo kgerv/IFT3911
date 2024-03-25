@@ -475,6 +475,49 @@ on en déduit qu'il n'y a pas de famine dans le réseau.
     
     <div>
         <h2>Tâche 4 - Analyse de la qualité du design</h2>
+                <p>Discussion du couplage et de la cohésion des modules :</p>
+        <br>
+        <pre>
+            Les modules à usage général et réutilisables sont:
+            module Admin (Admin, AdminGUI, AdminController)
+            module Client  (Client, ClientController, ClientGUI)
+            module CatalogueDescriptionTrajet(CatalogueDescriptionTrajet, CatalogueDescriptionTrajetAdmin, CatalogueDescriptionTrajetClient)
+            module Reservation (Reservation, ReservationController)
+            module Trajet (Trajet, Vol, Croisiere, TrajetFerroviaire)
+            module DescriptionTrajet (DescriptionVol, DescriptionItineraireMarin, DescriptionTrajetFerroviaire)
+            module Installation (Aeroport, Port, Gare)
+            module Compagnie (CompagnieAerienne, CompagnieCroisiere, CompagnieTrain)
+            module Section (SectionCabine(...), SectionSiege(...))
+            module Vehicule (Avion, Paquebot, Train)
+            module Emplacement (Siege, Cabine)
+            
+            
+            Globalement, les modules présentent un bon niveau de cohésion, par exemple, DescriptionTrajet, 
+            regroupe des classes pour chaque type de trajet (vol, marin et ferroviaire). De même pour tous 
+            les modules cités précédemment comme des modules général et réutilisables. 
+            
+            Dans l’ensemble les modules offrent un couplage faible avec d'autres modules, car ils offrent 
+            des services bien définis, sans trop dépendre des détails internes des autres modules. Cependant, 
+            il y a un couplage élevé de AdminController qui indique une dépendance significative pouvant limiter 
+            la réutilisabilité et la maintenance. Bien qu’il est normal que cette classe ait plus de responsabilités 
+            que les autres, il faudrait en réduire la dépendance. De même pour ClientController.
+        </pre>
+        <p>Discussion du fardeau des classes :</p>
+        <br>
+        <pre>
+            Ainsi, il y a un fardeau avec une charge élevée sur ClientController et AdminController lié 
+            au contrainte du système voulu qui nécessite que ces classes soient plus multitâches. Ces charges étaient 
+            prévisibles et soulignent l’importance de bien respecter les principes de conception pour en minimiser les risques.
+        </pre>
+        <p>Graphe IA et justification :</p>
+        <br>
+        <p>Justification de l'application des principes de conception :</p>
+        <pre>
+Les principes de conception tels que les principes SOLID ont été partiellement appliqués dans le diagramme de classe.
+Principe de Responsabilité Unique (SRP): Appliqué sur CatalogueDescriptionTrajet, notamment pour minimiser responsabilité de celle-ci.
+Liskov Substitution Principle (LSP): Appliqué dans le module Catalogue pour fluidifier la logique 
+Interface Segregation Principle (ISP): Appliqué pour supprimer la classe ConfirmationPaiement qui était inutile
+        </pre>
     </div>
 </body>
 </html>
