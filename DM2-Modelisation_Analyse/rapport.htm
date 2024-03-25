@@ -24,6 +24,16 @@
             padding-inline: 5px;
             border-bottom: solid 1px black;
         }
+        figure
+        {
+            width:100%;
+        }
+        figure img
+        {
+            height: auto;
+            width: 90%;
+            margin: 2rem 0 0 0;
+        }
         .first_col
         {
             border-right: double 2px black;
@@ -227,14 +237,12 @@ on en déduit qu'il n'y a pas de famine dans le réseau.
             <h3>Hypothèses</h3>
             <ul>
                 <li>Client possède au moins une carte de crédit</li>
-                <li></li>
-                <li></li>
+                <li>Des bases de donnees existe pour sauver le contenu</li>
             </ul>
 
             <h3>Diagramme de classe</h3>
             <figure>
-                
-                <img src="" alt="Diagramme de classe révisé">
+                <img src="assets/Class diagram DM1 revised.svg" alt="Diagramme de classe révisé">
                 <figcaption >Diagramme de classe révisé</figcaption>
             </figure>
             <p>Voici les changements qui ont été apportés au diagramme de classe du DM1 suite au retour
@@ -299,13 +307,96 @@ on en déduit qu'il n'y a pas de famine dans le réseau.
                         dans une classe qui n'etait pas la bonne.
                     </p>
                 </li>
-                <li>pas de lien entre AdminController - Trajet car dernier peut etre retrouver via DescriptionTrajet</li>
-                <li>ajout de controleurs; certaines classes (Client, Reservation,...) agissaient comme controleur en plus d'etre une represenation d'un objet</li>                
+                <li>
+                    <h4>Ajouts</h4>
+                    <p>
+                        Ajout de controleurs; certaines classes (Client, Reservation,...) agissaient comme controleur en plus d'etre une representation d'un objet
+                    </p>
+                    <p>
+                        Les catalogues sont des controllers qui lie l'onjet dans leur nom au controllers usagers ainsi qu'a des bases de donnees si celles-ci existe.
+                    </p>
+                </li>                
             </ul>
         </div>
 
         <div>
             <h3>Diagrammes de séquence ou de collaboration</h3>
+            <p>Les diagrammes suivants ont été ajoutés car manquants dans le devoir 1:</p>
+            <ul>
+                <li>Création/Modification/Suppression d’aéroports (admin)</li>
+                <li>Création/Modification/Suppression de compagnies aériennes (admin)</li>
+                <li>Création/Modification/Suppression de vols (admin)</li>
+                <li>Création des sections (admin)</li>
+                <li>Assignation des prix (admin)</li>
+                <li>Afficher tous les vols entrant/sortants d’un aéroport ou d’une compagnie aérienne (admin)</li>
+                <li>Payer la réservation (client)</li>
+            </ul>
+            
+            <h3>Hypothèses</h3>
+            <ul>
+                <li>Admin est deja logged in</li>
+                <li>Client n'as pas besoin de se loggin ou de posseder un compte pour utiliser le logiciel</li>
+            </ul>
+            <figure>
+                <img src="assets/Afficher trajets - admin.svg" alt="sequence afficher trajet">
+                <figcaption >Diagramme de séquence: afficher les trajets</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Assignation prix.svg" alt="sequence assignation prix">
+                <figcaption >Diagramme de séquence: assignation de prix</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Compagnie.svg" alt="sequence creation compagnie">
+                <figcaption >Diagramme de séquence: création de compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Installation.svg" alt="sequence creation installaiton">
+                <figcaption >Diagramme de séquence: création d'installation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Sections.svg" alt="sequence creation section">
+                <figcaption >Diagramme de séquence: création de section</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification Compagnie.svg" alt="sequence modification compagnie">
+                <figcaption >Diagramme de séquence: modification de compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification Installation.svg" alt="sequence modification installation">
+                <figcaption >Diagramme de séquence: modification d'installaiton</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Trajet.svg" alt="sequence creation trajet">
+                <figcaption >Diagramme de séquence: creation de trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification trajet.svg" alt="sequence modification trajet">
+                <figcaption >Diagramme de séquence: modification de trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Payer reservation.svg" alt="sequence payer reservation">
+                <figcaption >Diagramme de séquence: payer une réservation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Reservation emplacement.svg" alt="sequence reservation emplacement">
+                <figcaption >Diagramme de séquence: reservation d'un emplacement</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppresion Installation.svg" alt="sequence suppresion installation">
+                <figcaption >Diagramme de séquence: afficher suppression d'une installation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppression Compagnie.svg" alt="sequence suppresion compagnie">
+                <figcaption >Diagramme de séquence: suppression d'une compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppression Trajet.svg" alt="sequence suppression trajet">
+                <figcaption >Diagramme de séquence: suppresion d'un trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Verification trajet.svg" alt="sequence verification trajet">
+                <figcaption >Diagramme de séquence: vérification de trajets</figcaption>
+            </figure>
         </div>
 
         <div>
@@ -377,9 +468,7 @@ on en déduit qu'il n'y a pas de famine dans le réseau.
             <h3>Modules réutilisables</h3>
             <ul>
                 <li>Abstraites: Compagnie, DescriptionTrajet, Installation, Trajet, Vehicule, Section, SectionCabine, SectionSiege, Emplacement</li>
-                <li>Catalogue cree DescriptionTrajet et Trajet</li>
-                <li></li>
-                <li></li>
+                <li>Interface: Catalogue, IGUI</li>
             </ul>
         </div>
     </div>
