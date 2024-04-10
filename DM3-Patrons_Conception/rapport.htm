@@ -185,7 +185,51 @@
 
     <h2>Hypothèses</h2>
     <div>
-        <h2>Tâche 1 - Réseau de Pétri</h2>
+        <h2>Tâche 1 - Reproduction du design selon les patrons de conception demandés</h2>
+        <div>
+            <ul>
+                <li>
+                    <h4>Fabrique</h4>
+                    <p>
+                        FA: 
+                        desavantages: pas de difference entre createCompany et createFacility pour Air, Train et Cruise => duplication de code
+                        difference pour travel entre Flight et les deux autres;
+                        avantages: Company, Travel et Facility sont lies par le type de voyage (Air, Train, Cruise)
+                        donc il est logique de les considerer comme des familles;
+                        1 seule factory par famille
+
+                        FM:
+                        desavantages: 3 factory pour Facility, Travel et Company: 9 totales;
+                        avantages: pas de duplication de code, on peut deja definir createOp() dans la classe abstraite; pas vrai pour Travel car Flight n'est pas définit comme TrainRoute et Cruise
+                        (1 arrets vs plusieurs)
+
+                        FA choisit
+                    </p>
+                </li>
+                <li>
+                    <h4>Singleton</h4>
+                    <p>
+                        fait
+                    </p>
+                </li>
+                <li>
+                    <h4>État</h4>
+                    <p></p>
+                </li>
+                <li>
+                    <h4>Observateur</h4>
+                    <p></p>
+                </li>
+                <li>
+                    <h4>Commande</h4>
+                    <p></p>
+                </li>
+                <li>
+                    <h4>Visiteur</h4>
+                    <p></p>
+                </li>
+            </ul>
+        </div>
     </div>
 
     <div>
