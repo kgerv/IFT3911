@@ -226,14 +226,13 @@
                 <li>
                     <h4>Commande</h4>
                     <p>
-                        Invoker: Admin
+                        Invoker: AdminGUI
                         Command: Command
                         Concrete Command: 
                             - add, edit, delete pour Company, Travel, Facility
                             - add (create), edit (assignPrice) pour Section (delete pas utilise)
-                        Receiver: controller/manager de Company, Travel, Facility, Section
-                        Client: AdminGUI
-
+                        Receiver: DB
+                        Client: Admin
                     </p>
                 </li>
                 <li>
@@ -250,6 +249,8 @@
             Factory Method: AddCommand, donc pas autres patrons
             Template Method: EditCommand et DeleteCommand, ne creent pas d'objets,
             donc pas des fabriques mais definissent un comportement
+
+            Container + Iterator: hashmap specialise
         </p>
     </div>
 
