@@ -1,19 +1,16 @@
 package ReservationSystem.TravelEntities;
 
 import ReservationSystem.Availability;
+import ReservationSystem.Available;
 
 public abstract class Place {
 
 	protected Availability state;
 	protected String idPlace;
 
-	/**
-	 * 
-	 * @param e
-	 */
-	public void event(String e) {
-		// TODO - implement ReservationSystem.ReservationSystem.TravelEntities.Place.event
-		throw new UnsupportedOperationException();
+	public Place(String id) {
+		this.idPlace = id;
+		this.state = new Available(this);
 	}
 
 	/**
@@ -21,8 +18,7 @@ public abstract class Place {
 	 * @param s
 	 */
 	public void setAvailability(Availability s) {
-		// TODO - implement ReservationSystem.ReservationSystem.TravelEntities.Place.setAvailability
-		throw new UnsupportedOperationException();
+		this.state = s;
 	}
 
 }

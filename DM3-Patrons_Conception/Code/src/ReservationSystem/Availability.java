@@ -8,6 +8,8 @@ public interface Availability {
 	 * 
 	 * @param context
 	 */
-	void event(Place context);
+	public void setAvailability(Place context);
+	public void previousState(Place context);
+	public void nextState(Place context);
 
 }

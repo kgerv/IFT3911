@@ -13,18 +13,22 @@ public class ReservationSystem {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		GUI view = null;
+		GUI view;
+		Controller controller;
+
 		Scanner scan = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("1.ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin\n2.ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Client.Client");
+		System.out.println("1.Admin\n2.Client");
 
 		String choice = scan.nextLine();
 
 		switch(choice) {
 			case "1":
 				view = new AdminGUI();
+				controller = new Admin(view);
 				break;
 			case "2":
 				view = new ClientGUI();
+				controller = new Client(view);
 				break;
 			default:
 				System.out.println("Invalid choice");

@@ -10,8 +10,8 @@ import ReservationSystem.Users.UI.GUI;
 
 public class AddCompany extends AddCommand {
 
-    public AddCompany(GUI gui) {
-        super(gui);
+    public AddCompany() {
+        
     }
 
     @Override
@@ -20,27 +20,7 @@ public class AddCompany extends AddCommand {
     }
 
     @Override
-    public void visit(Travel t) {
-
-    }
-
-    @Override
-    public void visit(Facility f) {
-
-    }
-
-    @Override
     public void visit(Company c) {
-
-    }
-
-    @Override
-    public void visit(Vehicle v) {
-
-    }
-
-    @Override
-    public void visit(Section s) {
-
+        
     }
 }

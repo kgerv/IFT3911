@@ -4,10 +4,11 @@ import ReservationSystem.Users.Observers.Admin.Admin;
 import ReservationSystem.Users.UI.GUI;
 
 public class AdminGUI extends GUI {
-	private Admin admin;
+	private GUI view;
 
-	public AdminGUI() {
-		this.admin = new Admin();
+
+	public AdminGUI(GUI view) {
+		this.view = view;
 	}
 
 	/**
@@ -29,4 +30,9 @@ public class AdminGUI extends GUI {
 		throw new UnsupportedOperationException();
 	}
 
+	// change state of view between types
+
+	private buttonAirEntities(){}
+	private buttonCruiseEntities(){}
+	private buttonTrainEntities(){}
 }
