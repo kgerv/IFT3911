@@ -1,6 +1,6 @@
 package ReservationSystem;
 
-import ReservationSystem.User.Observer.Observer;
+import ReservationSystem.Users.Observers.Observer;
 
 public class SubscriptionManager {
 

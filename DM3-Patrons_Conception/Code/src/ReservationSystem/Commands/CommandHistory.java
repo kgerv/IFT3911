@@ -1,5 +1,7 @@
 package ReservationSystem.Commands;
 
+import java.util.Stack;
+
 public class CommandHistory {
 
 	private Stack<Command> commands;

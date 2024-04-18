@@ -1,8 +1,8 @@
 package ReservationSystem;
 
-import ReservationSystem.User.UI.Admin.AdminGUI;
-import ReservationSystem.User.UI.Client.ClientGUI;
-import ReservationSystem.User.UI.GUI;
+import ReservationSystem.Users.UI.Admin.AdminGUI;
+import ReservationSystem.Users.UI.Client.ClientGUI;
+import ReservationSystem.Users.UI.GUI;
 
 import java.util.Scanner;
 

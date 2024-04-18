@@ -1,6 +1,6 @@
-package ReservationSystem.User.Observer;
+package ReservationSystem.Users.Observers;
 
-import ReservationSystem.ReservationSystem;
+import ReservationSystem.Subject;
 
 public abstract class Observer {
 

@@ -1,6 +1,6 @@
 package ReservationSystem.Visitor;
 
-import ReservationSystem.Company;
+import ReservationSystem.TravelEntities.Company;
 import ReservationSystem.DBTravelEntities;
 import ReservationSystem.TravelEntities.Facility;
 import ReservationSystem.TravelEntities.Section;

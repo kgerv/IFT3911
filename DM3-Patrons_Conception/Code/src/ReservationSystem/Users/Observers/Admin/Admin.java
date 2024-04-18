@@ -1,8 +1,17 @@
-package ReservationSystem.User.Observer.Admin;
+package ReservationSystem.Users.Observers.Admin;
 
 import ReservationSystem.Commands.Command;
-import ReservationSystem.ReservationSystem;
-import ReservationSystem.User.Observer.Observer;
+import ReservationSystem.TravelEntities.Company;
+import ReservationSystem.DBTravelEntities;
+import ReservationSystem.Subject;
+import ReservationSystem.TravelEntities.Facility;
+import ReservationSystem.TravelEntities.Section;
+import ReservationSystem.TravelEntities.Travel;
+import ReservationSystem.TravelEntities.Vehicle;
+import ReservationSystem.Users.Observers.Observer;
+import ReservationSystem.Visitor.Visitor;
+
+import java.util.List;
 
 public class Admin extends Observer implements Visitor {
 
@@ -42,4 +51,38 @@ public class Admin extends Observer implements Visitor {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void update(Subject s) {
+
+	}
+
+	@Override
+	public void visit(DBTravelEntities db) {
+
+	}
+
+	@Override
+	public void visit(Travel t) {
+
+	}
+
+	@Override
+	public void visit(Facility f) {
+
+	}
+
+	@Override
+	public void visit(Company c) {
+
+	}
+
+	@Override
+	public void visit(Vehicle v) {
+
+	}
+
+	@Override
+	public void visit(Section s) {
+
+	}
 }

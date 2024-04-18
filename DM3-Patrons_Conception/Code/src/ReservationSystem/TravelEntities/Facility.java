@@ -8,7 +8,6 @@ public abstract class Facility extends TravelEntity {
 	protected String city;
 	protected String country;
 
-	public abstract void accept(Visitor v);
-
+	@Override
 	public abstract void accept(Visitor v);
 }

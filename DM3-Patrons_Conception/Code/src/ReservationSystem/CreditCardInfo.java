@@ -1,10 +1,12 @@
 package ReservationSystem;
 
+import java.util.Calendar;
+
 public class CreditCardInfo {
 
 	private String cardHolderName;
 	private long number;
 	private int ccv;
-	private Date expiration;
+	private Calendar expiration;
 
 }

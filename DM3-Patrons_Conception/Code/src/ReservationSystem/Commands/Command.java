@@ -3,14 +3,13 @@ package ReservationSystem.Commands;
 import ReservationSystem.TravelEntities.TravelEntity;
 import ReservationSystem.Visitor.Visitor;
 
+import java.util.HashMap;
+
 public abstract class Command implements Visitor {
 
 	protected HashMap<String, TravelEntity> backup;
 
-	public void execute() {
-		// TODO - implement ReservationSystem.Commands.Command.execute
-		throw new UnsupportedOperationException();
-	}
+	public void execute() {}
 
 	/**
 	 * 

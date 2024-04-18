@@ -1,5 +1,8 @@
 package ReservationSystem.TravelEntities.AirTravel;
 
+import ReservationSystem.TravelEntities.Company;
+import ReservationSystem.Visitor.Visitor;
+
 public class Airline extends Company {
 
     public Airline(String id) {

@@ -1,6 +1,6 @@
-package ReservationSystem.User.UI.Admin;
+package ReservationSystem.Users.UI.Admin;
 
-import ReservationSystem.ReservationSystem;
+import ReservationSystem.Users.UI.GUI;
 
 public class AdminGUI extends GUI {
 

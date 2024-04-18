@@ -3,6 +3,7 @@ package ReservationSystem.TravelEntities;
 import ReservationSystem.TravelEntities.Cruise.Cruise;
 import ReservationSystem.TravelEntities.Cruise.CruiseLine;
 import ReservationSystem.TravelEntities.Cruise.Cruiseship;
+import ReservationSystem.TravelEntities.Cruise.Port;
 
 import java.util.Calendar;
 import java.util.List;

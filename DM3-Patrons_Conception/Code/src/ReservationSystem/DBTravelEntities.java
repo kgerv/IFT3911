@@ -2,6 +2,9 @@ package ReservationSystem;
 
 import ReservationSystem.TravelEntities.TravelEntity;
 import ReservationSystem.Visitor.Visitable;
+import ReservationSystem.Visitor.Visitor;
+
+import java.util.HashMap;
 
 public class DBTravelEntities extends Subject implements Visitable {
 
@@ -21,4 +24,8 @@ public class DBTravelEntities extends Subject implements Visitable {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void accept(Visitor v) {
+		v.visit(this);
+	}
 }

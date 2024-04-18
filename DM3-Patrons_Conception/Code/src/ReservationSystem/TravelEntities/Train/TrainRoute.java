@@ -1,5 +1,9 @@
 package ReservationSystem.TravelEntities.Train;
 
+import ReservationSystem.TravelEntities.Facility;
+import ReservationSystem.TravelEntities.MultiStops;
+import ReservationSystem.Visitor.Visitor;
+
 import java.time.Duration;
 import java.util.Calendar;
 import java.util.List;

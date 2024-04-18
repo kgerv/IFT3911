@@ -1,6 +1,6 @@
-package ReservationSystem.User.UI.Client;
+package ReservationSystem.Users.UI.Client;
 
-import ReservationSystem.ReservationSystem;
+import ReservationSystem.Users.UI.GUI;
 
 public class ClientGUI extends GUI {
 

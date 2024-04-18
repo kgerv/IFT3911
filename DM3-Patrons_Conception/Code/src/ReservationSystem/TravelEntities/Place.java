@@ -1,5 +1,7 @@
 package ReservationSystem.TravelEntities;
 
+import ReservationSystem.Availability;
+
 public abstract class Place {
 
 	protected Availability state;
