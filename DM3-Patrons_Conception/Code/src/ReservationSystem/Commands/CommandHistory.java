@@ -1,23 +1,21 @@
 package ReservationSystem.Commands;
 
 import java.util.Stack;
-
+//https://refactoring.guru/design-patterns/command/java/example
 public class CommandHistory {
-
-	private Stack<Command> commands;
+	private Stack<Command> commands = new Stack<>();
 
 	/**
 	 * 
 	 * @param c
 	 */
 	public void push(Command c) {
-		// TODO - implement ReservationSystem.Commands.CommandHistory.push
-		throw new UnsupportedOperationException();
+		commands.push(c);
 	}
 
 	public void pop() {
-		// TODO - implement ReservationSystem.Commands.CommandHistory.pop
-		throw new UnsupportedOperationException();
+		commands.pop();
 	}
 
+	public boolean isEmpty() { return commands.isEmpty(); }
 }
