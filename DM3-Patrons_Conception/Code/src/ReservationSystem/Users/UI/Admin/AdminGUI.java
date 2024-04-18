@@ -1,8 +1,14 @@
 package ReservationSystem.Users.UI.Admin;
 
+import ReservationSystem.Users.Observers.Admin.Admin;
 import ReservationSystem.Users.UI.GUI;
 
 public class AdminGUI extends GUI {
+	private Admin admin;
+
+	public AdminGUI() {
+		this.admin = new Admin();
+	}
 
 	/**
 	 * 

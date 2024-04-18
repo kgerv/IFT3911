@@ -6,10 +6,12 @@ import ReservationSystem.TravelEntities.Facility;
 import ReservationSystem.TravelEntities.Section;
 import ReservationSystem.TravelEntities.Travel;
 import ReservationSystem.TravelEntities.Vehicle;
+import ReservationSystem.Users.UI.GUI;
 
 public class AddCompany extends AddCommand {
 
-    public AddCompany() {
+    public AddCompany(GUI gui) {
+        super(gui);
     }
 
     @Override

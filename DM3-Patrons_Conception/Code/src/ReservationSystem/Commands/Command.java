@@ -1,28 +1,31 @@
 package ReservationSystem.Commands;
 
 import ReservationSystem.TravelEntities.TravelEntity;
+import ReservationSystem.Users.UI.GUI;
 import ReservationSystem.Visitor.Visitor;
 
 import java.util.HashMap;
-
+// https://refactoring.guru/design-patterns/command/java/example and all descendants
 public abstract class Command implements Visitor {
+	public GUI gui;
+	private HashMap<String, TravelEntity> backup;
 
-	protected HashMap<String, TravelEntity> backup;
+	public Command(GUI gui) {
+		this.gui = gui;
+	}
 
-	public void execute() {}
+	public abstract void execute();
 
 	/**
 	 * 
 	 * @param db
 	 */
 	public void saveBackup(HashMap<String, TravelEntity> db) {
-		// TODO - implement ReservationSystem.Commands.Command.saveBackup
-		throw new UnsupportedOperationException();
+		this.backup = null; // TODO
 	}
 
 	public void undo() {
-		// TODO - implement ReservationSystem.Commands.Command.undo
-		throw new UnsupportedOperationException();
+		// TODO
 	}
 
 }
