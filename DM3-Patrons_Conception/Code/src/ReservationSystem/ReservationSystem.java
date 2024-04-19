@@ -13,8 +13,11 @@ public class ReservationSystem {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		SubscriptionManager subManager = new SubscriptionManager();
 		GUI view;
 		Controller controller;
+
+		DBTravelEntities model = new DBTravelEntities();
 
 		Scanner scan = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("1.Admin\n2.Client");

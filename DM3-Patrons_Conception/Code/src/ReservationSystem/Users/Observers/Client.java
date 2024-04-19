@@ -1,4 +1,4 @@
-package ReservationSystem.Users.Observers.Client;
+package ReservationSystem.Users.Observers;
 
 import ReservationSystem.TravelEntities.Company;
 import ReservationSystem.DBTravelEntities;

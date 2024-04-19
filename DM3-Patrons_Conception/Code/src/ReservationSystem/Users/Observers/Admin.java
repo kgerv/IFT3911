@@ -1,4 +1,4 @@
-package ReservationSystem.Users.Observers.Admin;
+package ReservationSystem.Users.Observers;
 
 import ReservationSystem.Commands.Command;
 import ReservationSystem.TravelEntities.Company;
