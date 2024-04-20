@@ -18,6 +18,6 @@ public class Assigned implements Availability {
 
     @Override
     public void nextState(Place context) {
-        context.setAvailability(new Assigned());
+        context.setAvailability(new Available());
     }
 }
