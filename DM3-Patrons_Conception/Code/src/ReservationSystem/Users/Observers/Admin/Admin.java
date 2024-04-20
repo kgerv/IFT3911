@@ -10,30 +10,31 @@ import ReservationSystem.TravelEntities.Travel;
 import ReservationSystem.TravelEntities.Vehicle;
 import ReservationSystem.Users.Observers.Observer;
 import ReservationSystem.Visitor.Visitor;
-
+import ReservationSystem.Commands.CommandHistory;
 import java.util.List;
 
 public class Admin extends Observer implements Visitor {
 
 	private List<Command> commands;
+	private CommandHistory history = new CommandHistory();
+	//stocker les trajets
+	private List<Travel> travels;
 
 	/**
 	 * 
 	 * @param c
 	 */
 	public void excuteCommand(Command c) {
-		// TODO - implement ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin.excuteCommand
-		throw new UnsupportedOperationException();
+		c.execute();
+		history.push(c);
 	}
 
 	public void undo() {
-		// TODO - implement ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin.undo
-		throw new UnsupportedOperationException();
+		history.pop();
 	}
 
-	public void setCommand() {
-		// TODO - implement ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin.setCommand
-		throw new UnsupportedOperationException();
+	public void setCommand(Command c) {
+		commands.add(c);
 	}
 
 	public void create() {
@@ -42,18 +43,16 @@ public class Admin extends Observer implements Visitor {
 	}
 
 	public void displayTravel() {
-		// TODO - implement ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin.displayTravel
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void display() {
-		// TODO - implement ReservationSystem.ReservationSystem.ReservationSystem.User.UI.ReservationSystem.User.Observer.Admin.Admin.display
-		throw new UnsupportedOperationException();
+		
 	}
 
 	@Override
 	public void update(Subject s) {
-
+		//
 	}
 
 	@Override

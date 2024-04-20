@@ -3,6 +3,7 @@ package ReservationSystem;
 import ReservationSystem.Users.UI.Admin.AdminGUI;
 import ReservationSystem.Users.UI.Client.ClientGUI;
 import ReservationSystem.Users.UI.GUI;
+import ReservationSystem.Users.Observers.Admin.Admin;
 
 import java.util.Scanner;
 

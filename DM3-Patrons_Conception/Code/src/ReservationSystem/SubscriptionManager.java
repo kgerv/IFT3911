@@ -1,19 +1,22 @@
 package ReservationSystem;
 
 import ReservationSystem.Users.Observers.Observer;
+import java.util.HashMap;
+import java.util.List;
+
 
 public class SubscriptionManager {
 
-	private Hashtable<Observer> subscription;
-	private static SubscriptioManager instance;
-
+	private HashMap<Integer,Observer> subscription;
+	private static SubscriptionManager instance;
+	private int nextId = 0;
 	/**
 	 * 
 	 * @param o
 	 */
 	public void attach(Observer o) {
-		// TODO - implement ReservationSystem.SubscriptionManager.attach
-		throw new UnsupportedOperationException();
+		int id = nextId++;
+        subscription.put(id, o);
 	}
 
 	/**
@@ -21,18 +24,23 @@ public class SubscriptionManager {
 	 * @param o
 	 */
 	public void detach(Observer o) {
-		// TODO - implement ReservationSystem.SubscriptionManager.detach
-		throw new UnsupportedOperationException();
+		//supprimer la valeur de l'objet o dans la liste de subscription.
+
+		subscription.remove(o);
 	}
 
 	public void notify() {
-		// TODO - implement ReservationSystem.SubscriptionManager.notify
-		throw new UnsupportedOperationException();
+		//Notifier tous les observateurs
+		for (Observer o : subscription.values()) {
+			o.update();
+		}
 	}
 
 	public static SubscriptionManager getInstance() {
-		// TODO - implement ReservationSystem.SubscriptionManager.getInstance
-		throw new UnsupportedOperationException();
+		if (instance == null) {
+			instance = new SubscriptionManager();
+		}
+		return instance;
 	}
 
 }

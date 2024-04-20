@@ -7,8 +7,7 @@ public class AdminGUI extends GUI {
 	private GUI view;
 
 
-	public AdminGUI(GUI view) {
-		this.view = view;
+	public AdminGUI() {
 	}
 
 	/**
