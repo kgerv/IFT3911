@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>IFT3911 DM2 - Hiv24</title>
+    <style type="text/css">
+        h4
+        {
+            text-decoration: underline;
+            text-decoration-thickness: .05rem;
+        }
+        table
+        {
+            border: outset 2px black;
+            border-collapse: collapse;
+        }
+        th
+        {
+            padding-inline: 5px;
+            border-bottom: double 2px black;
+        }
+        td
+        {
+            padding-inline: 5px;
+            border-bottom: solid 1px black;
+        }
+        figure
+        {
+            width:100%;
+        }
+        figure img
+        {
+            height: auto;
+            width: 90%;
+            margin: 2rem 0 0 0;
+        }
+        .first_col
+        {
+            border-right: double 2px black;
+        }
+        .todo
+        {
+            color: red;
+        }
+        .extension dt
+        {
+            margin-left: 25px;
+        }
+        ul.no-marker
+        {
+            list-style-type: none;
+        }
+        dl.extension > ol
+        {
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        IFT 3911 - Devoir 2</h1>
+
+    <h2>
+        Information générale</h2>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Killian Gervais
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>1841 
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>killian.gervais@umontreal.ca
+        <br />
+        
+    </p>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Roman Gilles-Lesage
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>5122
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>roman.gilles-lesage@umontreal.ca
+        <br />
+        
+    </p>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Tobias Lepoutre
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>7637
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>tobias.lepoutre@umontreal.ca
+        <br />
+       
+    </p>
+
+    <h2>
+        Distribution des tâches</h2>
+
+    <p>
+        <span class="todo" style="font-weight: bold;">Soumetteur: Tobias Lepoutre</span>
+    </p>
+
+    <table class="todo" scellpadding="7px">
+        <thead>
+            <tr>
+                <th class="first_col">
+                    Tâche
+                </th>
+                <th>
+                    Killian
+                </th>
+                <th>
+                    Roman
+                </th>
+                <th>
+                    Tobias
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+
+            <tr>
+                <td class="first_col">
+                    Réseau Pétri
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    100%
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    Statechart
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    100%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+
+            <tr>
+                <td class="first_col">
+                    Révision design
+                </td>
+                <td>
+                    100%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+
+            <tr>
+                <td class="first_col">
+                    Analyse design
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    100%
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <h2>Hypothèses</h2>
+    <div>
+        <h2>Tâche 1 - Réseau de Pétri</h2>
+                <p>
+            Modélisation du réseau de Pétri réalisé avec PIPE(v4.3.0) :
+        </p>
+        <img src="assets/Reseau_Petri.png" alt="Réseau de Pétri: Tunnel" width="800">
+        </b>
+        <p>
+            Analyse du réseau de Pétri :
+        </p>
+        <pre>
+On remarque que les places P3(tunnel1) et P6(tunnel2), représentant dont les voitures des voies 1 et 2,
+suivent la loi de conservation M(P3(tunnel1)) + M(P6(tunnel2)) = K, où K est inférieure ou égale à 1.
+En effet, à l'état initial, on a K=0, puis le modèle suit la séquence de franchissement déterminée <T1,T2,T3,T4>
+de façon cyclique tels que:
+- T1 ajoute un jeton à P3: K=1
+- T2 retire un jeton de P3: K=0
+- T3 ajoute un jeton à P6: K=1
+- T4 retire un jeton à P6: K=0 (et ainsi de suite...)
+Donc on en déduit que seule une voiture peut être à l'intérieur du tunnel à la fois.
+        </pre>
+        <p>Le système semble équitable. On vérifie cela en dressant le graphe de couverture :</p>
+        <img src="assets/Graphe_couverture.png" alt="Réseau de Pétri: Tunnel" width="500">
+        <pre>
+Effectivement, le système est équitable puisque ce graphe de couverture confirme le fait qu'il y a une alternance
+effectuée entre chaque coté du tunnel ne laissant passer qu'une voiture à chaque fois. De plus, cela est toujours vrai 
+aussi longtemps que le tunnel respecte ce système cyclique déterminé.
+
+Ainsi, puisque ce réseau ne rencontre jamais de blocage et qu'il peut activer ses transitions indéfiniment,
+on en déduit qu'il n'y a pas de famine dans le réseau.
+        </pre>
+    </div>
+
+    <div>
+        <h2>Tâche 2 - Statechart</h2>
+        <p>Interprétations de la consigne:</p>
+        <ul>
+            <li>On considère qu'il faut d'abord ouvrir la porte du micro-onde puis la fermer avant de commencer quelconque manipulation</li>
+            <li>On considère que si l'utilisateur se trompe d'input dans la séquence (température ou bien 
+                minuterie) il doit appuyer sur stop pour recommencer l'entièreté de la séquence.
+                Il n'y a pas de retour en arrière possible si par exemple on voudrait changer la température après avoir rentré le temps.
+            </li>
+        </ul>
+        <img src="assets/statechart.png" alt="statechart" width="500">
+    </div>
+
+    <div>
+        <h2>Tâche 3 - Révision du design</h2>
+
+        <div>
+            <h3>Hypothèses</h3>
+            <ul>
+                <li>Client possède au moins une carte de crédit</li>
+                <li>Des bases de donnees existe pour sauver le contenu</li>
+            </ul>
+
+            <h3>Diagramme de classe</h3>
+            <figure>
+                <img src="assets/Class diagram DM1 revised.svg" alt="Diagramme de classe révisé">
+                <figcaption >Diagramme de classe révisé</figcaption>
+            </figure>
+            <p>Voici les changements qui ont été apportés au diagramme de classe du DM1 suite au retour
+                issue de la correction de celui-ci ainsi qu'aux connaissances additionnelles acquise lors
+                des cours.
+            </p>
+            <ul class="no-marker">
+                <li>
+                    <h4>DescriptionTrajet et Trajet</h4>
+                    <p>Entre le diagramme de classe conceptuel et le diagramme nous avions décidé de
+                        déplacer la totalité des attributs de <b>Trajet</b> dans <b>DescriptionTrajet</b>.
+                        Dans la correction on indique que puisque <b>Trajet</b> ne contient plus
+                        d'informations pertinentes celle-ci devrait disparaitre. Puisque nous considérons
+                        que ces deux classes sont essentielles, <b>Trajet</b> correspond à la réalisation
+                        de la description à une date précise avec un <b>Vehicule</b> précis, nous somme
+                        revenu a un design plus proche de celui-ci que nous avions fait dans le diagramme
+                        de classe conceptuel.
+                    </p>
+                    <p>
+                        Les attributs <b>idTrajet</b> et <b>prixBase</b> ont été ajouté à <b>Trajet</b>
+                        car oubliés.
+                    </p>
+                </li>
+                <li>
+                    <h4>Emplacement et Section</h4>
+                    <p>
+                        Suppression de l'attribut <b>prix</b> dans <b>Emplacement</b>, car déjà présent
+                        dans <b>Section</b>. Type de <b>attitreA</b> passe de <b>Client</b> à 
+                        <b>Reservation</b>, plus logique pour quand vérifier quand place redevient
+                        disponible si elle est reservee.
+                    </p>
+                    <p>
+                        L'enumeration <b>DispositionSieges</b> vient remplacer l'heritage issu de
+                        <b>Siege</b>. Deux nouvelles classes ont été créées pour différencier les types
+                        sections de sections: <b>SectionSiege</b> et <b>SectionCabine</b>. Elles ont les
+                        generalisation correspondantes. <b>SelectionSiege</b> a pour atributs: 
+                        <b>dispositionSiege:DispositionSiege</b>, <b>MAX_COL</b> et <b>MAX_RANG</b> car
+                        ceux ils decrivent cette classe et non <b>Siege</b>.
+                    </p>
+                </li>
+                <li>
+                    <h4>GUI et Admin</h4>
+                    <p>
+                        L'interface <b>GUI</b> ainsi que ses realisations <b>ClientGUI</b> et
+                        <b>AdminGUI</b> ont ete ajoutees car manquantes.<br>
+                        De meme pour la classe <b>Admin.</b>
+                    </p>
+                </li>
+                <li>
+                    <h4>Suppression de classe peu utiles</h4>
+                    <p>
+                        On supprime les classes enfants de <b>Catalogue</b> car pas très utiles.
+                        La classe <b>ConfirmationPaiement</b> a été supprimée afin de réduire la redondance
+                        comme conseillé.<b>numConf</b> devient un attribut de <b>PaiementCredit</b>.
+                    </p>
+                </li>
+                <li>
+                    <h4>Suppression et deplacement de methodes</h4>
+                    <p>
+                        Une partie des methodes a ete supprimée car elle se trouvaient etre des
+                        setter/getter qui avaient juste un autre nom et qui, pour certaines, se trouvaient
+                        dans une classe qui n'etait pas la bonne.
+                    </p>
+                </li>
+                <li>
+                    <h4>Ajouts</h4>
+                    <p>
+                        Ajout de controleurs; certaines classes (Client, Reservation,...) agissaient comme controleur en plus d'etre une representation d'un objet
+                    </p>
+                    <p>
+                        Les catalogues sont des controllers qui lie l'onjet dans leur nom au controllers usagers ainsi qu'a des bases de donnees si celles-ci existe.
+                    </p>
+                </li>                
+            </ul>
+        </div>
+
+        <div>
+            <h3>Diagrammes de séquence ou de collaboration</h3>
+            <p>Les diagrammes suivants ont été ajoutés car manquants dans le devoir 1:</p>
+            <ul>
+                <li>Création/Modification/Suppression d’aéroports (admin)</li>
+                <li>Création/Modification/Suppression de compagnies aériennes (admin)</li>
+                <li>Création/Modification/Suppression de vols (admin)</li>
+                <li>Création des sections (admin)</li>
+                <li>Assignation des prix (admin)</li>
+                <li>Afficher tous les vols entrant/sortants d’un aéroport ou d’une compagnie aérienne (admin)</li>
+                <li>Payer la réservation (client)</li>
+            </ul>
+            
+            <h3>Hypothèses</h3>
+            <ul>
+                <li>Admin est deja logged in</li>
+                <li>Client n'as pas besoin de se loggin ou de posseder un compte pour utiliser le logiciel</li>
+            </ul>
+            <figure>
+                <img src="assets/Afficher trajets - admin.svg" alt="sequence afficher trajet">
+                <figcaption >Diagramme de séquence: afficher les trajets</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Assignation prix.svg" alt="sequence assignation prix">
+                <figcaption >Diagramme de séquence: assignation de prix</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Compagnie.svg" alt="sequence creation compagnie">
+                <figcaption >Diagramme de séquence: création de compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Installation.svg" alt="sequence creation installaiton">
+                <figcaption >Diagramme de séquence: création d'installation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Sections.svg" alt="sequence creation section">
+                <figcaption >Diagramme de séquence: création de section</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification Compagnie.svg" alt="sequence modification compagnie">
+                <figcaption >Diagramme de séquence: modification de compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification Installation.svg" alt="sequence modification installation">
+                <figcaption >Diagramme de séquence: modification d'installaiton</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Creation Trajet.svg" alt="sequence creation trajet">
+                <figcaption >Diagramme de séquence: creation de trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Modification trajet.svg" alt="sequence modification trajet">
+                <figcaption >Diagramme de séquence: modification de trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Payer reservation.svg" alt="sequence payer reservation">
+                <figcaption >Diagramme de séquence: payer une réservation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Reservation emplacement.svg" alt="sequence reservation emplacement">
+                <figcaption >Diagramme de séquence: reservation d'un emplacement</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppresion Installation.svg" alt="sequence suppresion installation">
+                <figcaption >Diagramme de séquence: afficher suppression d'une installation</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppression Compagnie.svg" alt="sequence suppresion compagnie">
+                <figcaption >Diagramme de séquence: suppression d'une compagnie</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Suppression Trajet.svg" alt="sequence suppression trajet">
+                <figcaption >Diagramme de séquence: suppresion d'un trajet</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/Verification trajet.svg" alt="sequence verification trajet">
+                <figcaption >Diagramme de séquence: vérification de trajets</figcaption>
+            </figure>
+        </div>
+
+        <div>
+            <h3>Diagramme de paquets</h3>
+        </div>
+
+        <div>
+            <h3>Contraintes OCL</h3>
+                        <p>Ajout des 2 contraintes manquantes:</p>
+            <p>
+                La partie alphabétique de l'ID d'un vol est unique à chaque compagnie et la partie numérique 
+                est unique à chaque vol au sein de la même compagnie:
+                <pre>
+                    <code>
+                        context Vol
+                        inv UniqueIDParCompagnie: Vol.allInstances()->forAll(v1, v2 | 
+                            v1 <> v2 implies 
+                            (v1.compagnie = v2.compagnie implies 
+                                (v1.id.substring(1, v1.id.indexOf('-')) <> v2.id.substring(1, v2.id.indexOf('-')) or 
+                                 v1.id.substring(v1.id.indexOf('-') + 1) <> v2.id.substring(v2.id.indexOf('-') + 1))))
+                    </code>
+                </pre>
+                Toutes les cabines d'une même section ont le même prix:
+                <pre>
+                    <code>
+                        context Section
+                        inv EmplacementsMemePrix: self.listeEmplacement->forAll(e1, e2 | e1.prix = e2.prix)                    
+                    </code>
+                </pre>
+            </p>
+            <p>Modification des contraintes à corriger:</p>
+            <p>
+                Une installation est identifié par trois lettres uniques à chaque installation:
+                <pre>
+                    <code>
+                        context Installation inv:
+                        Installation.allInstances()->forAll(c1, c2 |
+                            (c1 <> c2 and c1.oclIsKindOf(c2.OclType())) implies c1.code <> c2.code)                    
+                    </code>
+                </pre>
+                Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas: 
+                <pre>
+                    <code>
+                        context Croisiere inv:
+                        Croisiere.allInstances()->forAll(c1, c2 | 
+                            c1 <> c2 and c1.Assigne-a = c2.Assigne-A implies
+                                (c1.dateArrivee <= c2.dateDepart or c1.dateDepart >= c2.dateArrivee))                                      
+                    </code>
+                </pre>
+                Le client peut réserver un emplacement disponible dans un trajet donnée:
+                <pre>
+                    <code>
+                        context Reservation
+                        def: reserverEmplacement(t:Trajet, e:Emplacement) : Boolean =
+                            if e.disponible and t.emplacements->includes(e)
+                            then 
+                                e.disponible := false
+                                self.emplacement := e
+                                true
+                            else 
+                                false
+                            endif
+                    </code>
+                </pre>
+            </p>
+        </div>
+
+        <div>
+            <h3>Modules réutilisables</h3>
+            <ul>
+                <li>Abstraites: Compagnie, DescriptionTrajet, Installation, Trajet, Vehicule, Section, SectionCabine, SectionSiege, Emplacement</li>
+                <li>Interface: Catalogue, IGUI</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div>
+        <h2>Tâche 4 - Analyse de la qualité du design</h2>
+                <p>Discussion du couplage et de la cohésion des modules :</p>
+        <br>
+        <pre>
+            Les modules à usage général et réutilisables sont:
+            module Admin (Admin, AdminGUI, AdminController)
+            module Client  (Client, ClientController, ClientGUI)
+            module CatalogueDescriptionTrajet(CatalogueDescriptionTrajet, CatalogueDescriptionTrajetAdmin, CatalogueDescriptionTrajetClient)
+            module Reservation (Reservation, ReservationController)
+            module Trajet (Trajet, Vol, Croisiere, TrajetFerroviaire)
+            module DescriptionTrajet (DescriptionVol, DescriptionItineraireMarin, DescriptionTrajetFerroviaire)
+            module Installation (Aeroport, Port, Gare)
+            module Compagnie (CompagnieAerienne, CompagnieCroisiere, CompagnieTrain)
+            module Section (SectionCabine(...), SectionSiege(...))
+            module Vehicule (Avion, Paquebot, Train)
+            module Emplacement (Siege, Cabine)
+            
+            
+            Globalement, les modules présentent un bon niveau de cohésion, par exemple, DescriptionTrajet, 
+            regroupe des classes pour chaque type de trajet (vol, marin et ferroviaire). De même pour tous 
+            les modules cités précédemment comme des modules général et réutilisables. 
+            
+            Dans l’ensemble les modules offrent un couplage faible avec d'autres modules, car ils offrent 
+            des services bien définis, sans trop dépendre des détails internes des autres modules. Cependant, 
+            il y a un couplage élevé de AdminController qui indique une dépendance significative pouvant limiter 
+            la réutilisabilité et la maintenance. Bien qu’il est normal que cette classe ait plus de responsabilités 
+            que les autres, il faudrait en réduire la dépendance. De même pour ClientController.
+        </pre>
+        <p>Discussion du fardeau des classes :</p>
+        <br>
+        <pre>
+            Ainsi, il y a un fardeau avec une charge élevée sur ClientController et AdminController lié 
+            au contrainte du système voulu qui nécessite que ces classes soient plus multitâches. Ces charges étaient 
+            prévisibles et soulignent l’importance de bien respecter les principes de conception pour en minimiser les risques.
+        </pre>
+        <p>Graphe IA et justification :</p>
+        <br>
+        <p>Justification de l'application des principes de conception :</p>
+        <pre>
+Les principes de conception tels que les principes SOLID ont été partiellement appliqués dans le diagramme de classe.
+Principe de Responsabilité Unique (SRP): Appliqué sur CatalogueDescriptionTrajet, notamment pour minimiser responsabilité de celle-ci.
+Liskov Substitution Principle (LSP): Appliqué dans le module Catalogue pour fluidifier la logique 
+Interface Segregation Principle (ISP): Appliqué pour supprimer la classe ConfirmationPaiement qui était inutile
+        </pre>
+    </div>
+</body>
+</html>

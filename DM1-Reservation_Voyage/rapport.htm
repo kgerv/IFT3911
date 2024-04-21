@@ -35,7 +35,6 @@
         }
     </style>
 </head>
-
 <body>
     <h1 style="text-align: center;">
         IFT 3911 - Devoir 1</h1>
@@ -46,41 +45,41 @@
     <p>
         <span style="font-weight: bold;">Nom: </span>Killian Gervais
         <br />
-        <span style="font-weight: bold;">Matricule: </span>1841
+        <span style="font-weight: bold;">Matricule: </span>1841 
         <br />
         <span style="font-weight: bold;">Courriel: </span>killian.gervais@umontreal.ca
         <br />
-        <span style="font-weight: bold;">temps mis: </span>X heures
+        
     </p>
 
-    <p class=""todo>
+    <p>
         <span style="font-weight: bold;">Nom: </span>Roman Gilles-Lesage
         <br />
-        <span style="font-weight: bold;">Matricule: </span>20175122
+        <span style="font-weight: bold;">Matricule: </span>5122
         <br />
         <span style="font-weight: bold;">Courriel: </span>roman.gilles-lesage@umontreal.ca
         <br />
-        <span style="font-weight: bold;">temps mis: </span>40 heures 
+        
     </p>
 
-    <p class=""todo>
+    <p>
         <span style="font-weight: bold;">Nom: </span>Tobias Lepoutre
         <br />
-        <span style="font-weight: bold;">Matricule: </span>XXX
+        <span style="font-weight: bold;">Matricule: </span>7637
         <br />
         <span style="font-weight: bold;">Courriel: </span>tobias.lepoutre@umontreal.ca
         <br />
-        <span style="font-weight: bold;">temps mis: </span>40 heures
+       
     </p>
 
     <h2>
         Distribution des tâches</h2>
 
-    <p class="todo">
+    <p>
         <span style="font-weight: bold;">Soumetteur: </span>Roman Gilles-Lesage 
     </p>
 
-    <table class="todo" scellpadding="7px">
+    <table scellpadding="7px">
         <thead>
             <tr>
                 <th class="first_col">
@@ -163,17 +162,51 @@
         </tbody>
     </table>
 
-    <h2 class="todo">
-        Hypothèses</h2>
+    <h2>Hypothèses et justifications</h2>
+    <h3>Diagramme de classe domaine</h3>
+    <ul>
+        
+        <li>Description trajet : Change a DescriptionTrajet car cela correspond plus que Trajet
 
-    <p class="todo">
-        J'ai supposé que...
-    </p>
+            date et heureDepart  sont combine grace au format de Date en java
+            
+            dateArrivee devient dateArrivee pour constance
+            
+            duree est derivee de dateDepart et dateArrivee
+            
+            nomCompagnie change a compagnie de type Compagnie pour faciliter acces aux informations de cette derniere
+            
+            on ne considere pas idTrajet comme un attribut derivee meme s'il depend partiellement de compagnie
+            
+            on ommet les getters et setters que l'on considere necessaire par soucis d'espace mais ceux-ci doivent etre present dans l'implementation</li>
+        <li>Installations : ajout de nom et de pays pour une meilleure precision de l'objet en question</li>
+        <li>Section : heritage au lieu d'enum, permet plus de flexibilite dans la generalisation</li>
+        <li>Siege : position allee ou fenetre implicite par colonne
 
-    <h2 class="todo">
-        Tâche 1</h2>
+            Avion: nb siege max est une constante
+            
+            Heritage pour type de siege, meme logique que pour les sections</li>
+    </ul>
+    <h3>Diagrammes de séquences</h3>
+    <h4>Vérifier trajet</h4>
+    <ul>
+        <li>chercher trajet retourne les trajets correspondants à origine,destination et date
+            la boucle s'occupe de savoir lesquels ont
+            encore des places libres
+        <li>On cherche à savoir quels sont les trajets disponibles et qui 
+            ont encore de la place. La méthode isBooked permet de ne renvoyer que les trajets qui en ont</li>
+        
+    </ul>
+    <h4>Réserver siège  / emplacement</h4>
+    <ul>
+        
+        <li>On considère que la réservation a déjà été faite, le client n'a qu'a sélectionner le siège puisque il y'en a dans la section choisie</li>
+        <li>L'emplacement devient available lorsque sélectionné</li>
+    </ul>
 
-    <p class="todo">
+    <h2>Tâche 1</h2>
+
+    <p>
         <ul>
             <li>
                 <u>Scénario pour la suppression d'une compagnie aerienne:</u>
@@ -270,65 +303,120 @@
         </ul>
     </p>
 
-    <ul class="todo">
-        <li>Voici un <a href="file1.txt">lien</a> vers les fichiers.</li>
+    <ul>
+        <li>Voici un <a href="https://github.com/kgerv/IFT3911/tree/main/DM1-Reservation_Voyage">lien</a> vers les fichiers.</li>
         <li>Images affichées directement.</li>
     </ul>
+    
+    <h3>Diagramme de classe conceptuel</h3>
+    <img src="assets/diagrammeConceptuel.png" width="70%" alt="some image" />
 
-    <img src="http://www.desktopwallpaperhd.net/wallpapers/19/5/islands-paradise-maldive-nature-background-image-landscape-194469.jpg"
-        width="500px" alt="some image" />
+    <h3>Diagramme de séquence d'une vérification de trajet</h3>
+    <img src="assets/Verifier_trajet.PNG" width="70%" alt="some image" />
 
-    <h2 class="todo">
-        Tâche 2</h2>
+    <h3>Diagramme de séquence d'une reservation de siège</h3>
+    <img src="assets/Reserver_un_emplacement.PNG" width="70%" alt="some image" />
+    
+    <h2>Tâche 2</h2>
+    <h3>Diagramme de Classe</h3>
+        <img src="assets/diagrammeClasse.png" width="70%" alt="some image" />
 
-    <h2>Justifications</h2>
-    <h3>Diagramme de classe domaine</h3>
-    <ul>
-        
-        <li>Description trajet : Change a DescriptionTrajet car cela correspond plus que Trajet
+    <h3>Diagramme de séquence d'une vérification de trajet</h3>
+    <img src="assets/verificationTrajet.png" width="70%" alt="some image" />
 
-            date et heureDepart  sont combine grace au format de Date en java
-            
-            dateArrivee devient dateArrivee pour constance
-            
-            duree est derivee de dateDepart et dateArrivee
-            
-            nomCompagnie change a compagnie de type Compagnie pour faciliter acces aux informations de cette derniere
-            
-            on ne considere pas idTrajet comme un attribut derivee meme s'il depend partiellement de compagnie
-            
-            on ommet les getters et setters que l'on considere necessaire par soucis d'espace mais ceux-ci doivent etre present dans l'implementation</li>
-        <li>Installations : ajout de nom et de pays pour une meilleure precision de l'objet en question</li>
-        <li>Section : heritage au lieu d'enum, permet plus de flexibilite dans la generalisation</li>
-        <li>Siege : position allee ou fenetre implicite par colonne
+    <h3>Diagramme de séquence d'une reservation de siège</h3>
+    <img src="assets/reservationSiege.png" width="70%" alt="some image" />
 
-            Avion: nb siege max est une constante
+    <h3>Diagramme de séquence paiement d'une réservation</h3>
+    <img src="assets/paiementReservation.png" width="70%" alt="some image" />
+
+
+    <h2>Tâche 3</h2>
+
+    <p>
+        <ul>
+            <li>Une installation (aéroport, port, gare) est identifié par trois lettres uniques à chaque installation</li>
+            <pre>
+                <code>
+                    context Installation inv:
+                        Installation.allInstances()->forAll(c1, c2 |
+                            (c1 <> c2 and c1.oclIsKindOf(c2.OclType())) implies c1.code <> c2.code)
+                </code>
+            </pre>
+
+            <li>La partie alphabétique de l'ID d'un vol est unique à chaque compagnie et la partie numérique est unique à chaque vol au sein de la même compagnie</li>
+            <pre>
+                <code>
+                    context Vol
+                        inv: 
+                </code>
+            </pre>
+
+            <li>L'aéroport de départ et d'arrivée d'un vol doit être différent</li>
+            <pre>
+                <code>
+                    context DescriptionVol inv:
+                        self.origine <> self.destination
+                </code>
+            </pre>
             
-            Heritage pour type de siege, meme logique que pour les sections</li>
-    </ul>
-    <h3>Diagrammes de séquences</h3>
-    <h4>Vérifier trajet</h4>
-    <ul>
-        <li>chercher trajet retourne les trajets correspondants à origine,destination et date
-            la boucle s'occupe de savoir lesquels ont
-            encore des places libres
-        <li>On cherche à savoir quels sont les trajets disponibles et qui 
-            ont encore de la place. La méthode isBooked permet de ne renvoyer que les trajets qui en ont</li>
-        
-    </ul>
-    <h4>Réserver siège  / emplacement</h4>
-    <ul>
-        
-        <li>On considère que la réservation a déjà été faite, le client n'a qu'a sélectionner le siège puisque il y'en a dans la section choisie</li>
-        <li>L'emplacement devient available lorsque sélectionné</li>
-    </ul>
-    <h4>Payer trajet</h4>
-    <ul>
-        
-        
-    </ul>
-    <p class="todo">
-        ...
+            <li>Tous les emplacements (sièges, cabines) d'une même section ont le même prix</li>
+            <pre>
+                <code>
+                    context Section::listeEmplacement
+                        self.allInstances()->forAll(e1, e2 | e1.prix = e2.prix)
+                </code>
+            </pre>
+
+            <li>Un itinéraire ne peut pas durer plus de 21 jours</li>
+            <pre>
+                <code>
+                    context DescriptionItineraireMarin inv:
+                        self.duree <= 21
+                </code>
+            </pre>
+
+            <li>Le port de départ et d'arrivée doit être le même</li>
+            <pre>
+                <code>
+                    context DescriptionItineraireMarin inv:
+                        self.origine = self.destination
+                </code>
+            </pre>
+
+            <li>Un paquebot peut être assigné à plusieurs itinéraires tant qu'ils ne se chevauchent pas</li>
+            <pre>
+                <code>
+                    context Croisiere inv:
+                        Croisiere.allInstances()->forAll(c1, c2 | 
+                            c1 <> c2 and c1.Assigne-a = c2.Assigne-A implies
+                                (c1.dateArrivee <= c2.dateDepart or c1.dateDepart >= c2.dateArrivee))
+                </code>
+            </pre>
+            
+            <li>Le client peut réserver un emplacement (siège, cabine) disponible dans un trajet (vol, croisiere, trajet ferroviaire) donné</li>
+            <pre>
+                <code>
+                    context Emplacement
+                        if self.disponible = true
+                        then (t:Trajet, r:Reservation | r.reserverTajet(t) = true)
+                        else false
+                        endif 
+                        
+                </code>
+            </pre>
+
+            <li>Un siège réservé devient assigné à un passager une fois payé: le siège est donc confirmé</li>
+            <pre>
+                <code>
+                    context Reservation inv:
+                        if self.estPaye()
+                        then self.emplacement.attitreA = self.client
+                        endif
+                </code>
+            </pre>
+        </ul>
     </p>
+    
 </body>
 </html>

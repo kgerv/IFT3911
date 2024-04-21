@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>IFT3911 DM2 - Hiv24</title>
+    <style type="text/css">
+        h4
+        {
+            text-decoration: underline;
+            text-decoration-thickness: .05rem;
+        }
+        table
+        {
+            border: outset 2px black;
+            border-collapse: collapse;
+        }
+        th
+        {
+            padding-inline: 5px;
+            border-bottom: double 2px black;
+        }
+        td
+        {
+            padding-inline: 5px;
+            border-bottom: solid 1px black;
+        }
+        figure
+        {
+            width:100%;
+        }
+        figure img
+        {
+            height: auto;
+            width: 90%;
+            margin: 2rem 0 0 0;
+        }
+        .first_col
+        {
+            border-right: double 2px black;
+        }
+        .todo
+        {
+            color: red;
+        }
+        .extension dt
+        {
+            margin-left: 25px;
+        }
+        ul.no-marker
+        {
+            list-style-type: none;
+        }
+        dl.extension > ol
+        {
+            margin-left: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">
+        IFT 3911 - Devoir 2</h1>
+
+    <h2>
+        Information générale</h2>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Killian Gervais
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>1841 
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>killian.gervais@umontreal.ca
+        <br />
+        
+    </p>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Roman Gilles-Lesage
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>5122
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>roman.gilles-lesage@umontreal.ca
+        <br />
+        
+    </p>
+
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Tobias Lepoutre
+        <br />
+        <span style="font-weight: bold;">Matricule: </span>7637
+        <br />
+        <span style="font-weight: bold;">Courriel: </span>tobias.lepoutre@umontreal.ca
+        <br />
+       
+    </p>
+
+    <h2>
+        Distribution des tâches</h2>
+
+    <p>
+        <span class="todo" style="font-weight: bold;">Soumetteur: </span>
+    </p>
+
+    <table class="todo" scellpadding="7px">
+        <thead>
+            <tr>
+                <th class="first_col">
+                    Tâche
+                </th>
+                <th>
+                    Killian
+                </th>
+                <th>
+                    Roman
+                </th>
+                <th>
+                    Tobias
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            
+
+            <tr>
+                <td class="first_col">
+                    
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+            <tr>
+                <td class="first_col">
+                    
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+
+            <tr>
+                <td class="first_col">
+                    
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+
+            <tr>
+                <td class="first_col">
+                    Analyse design
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+                <td>
+                    0%
+                </td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <h2>Hypothèses</h2>
+    <div>
+        <h2>Tâche 1 - Reproduction du design selon les patrons de conception demandés</h2>
+        <div>
+            <ul>
+                <li>
+                    <h4>Fabrique</h4>
+                    <p>
+                        FA: 
+                        desavantages: pas de difference entre createCompany et createFacility pour Air, Train et Cruise => duplication de code
+                        difference pour travel entre Flight et les deux autres;
+                        avantages: Company, Travel et Facility sont lies par le type de voyage (Air, Train, Cruise)
+                        donc il est logique de les considerer comme des familles;
+                        1 seule factory par famille
+
+                        FM:
+                        desavantages: 3 factory pour Facility, Travel et Company: 9 totales;
+                        avantages: pas de duplication de code, on peut deja definir createOp() dans la classe abstraite; pas vrai pour Travel car Flight n'est pas définit comme TrainRoute et Cruise
+                        (1 arrets vs plusieurs)
+
+                        FA choisit
+                    </p>
+                </li>
+                <li>
+                    <h4>Singleton</h4>
+                    <p>
+                        fait
+                    </p>
+                </li>
+                <li>
+                    <h4>État</h4>
+                    <p></p>
+                </li>
+                <li>
+                    <h4>Observateur</h4>
+                    <p>
+                        Les observateurs sont Client et Admin (2 types differrents);
+                        Le sujet concret est le modele de la BD;
+                    </p>
+                </li>
+                <li>
+                    <h4>Commande</h4>
+                    <p>
+                        Invoker: AdminGUI
+                        Command: Command
+                        Concrete Command: 
+                            - add, edit, delete pour Company, Travel, Facility
+                            - add (create), edit (assignPrice) pour Section (delete pas utilise)
+                        Receiver: DB
+                        Client: Admin
+                    </p>
+                </li>
+                <li>
+                    <h4>Visiteur</h4>
+                    <p></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div>
+        <h2>Tâche 2 - Autres patrons</h2>
+        <p>
+            Factory Method: AddCommand, donc pas autres patrons
+            Template Method: EditCommand et DeleteCommand, ne creent pas d'objets,
+            donc pas des fabriques mais definissent un comportement
+
+            
+            Mediateur: SubscriptionManager
+        </p>
+    </div>
+
+    <div>
+        <h2>Tâche 3 - Révision du design</h2>
+    </div>
+    
+    <div>
+        <h2>Tâche 4 - Analyse de la qualité du design</h2>
+    </div>
+</body>
+</html>
