@@ -18,4 +18,9 @@ public class ReservationManager implements TravelEntityManager {
     public void delete(TravelEntity e) {
 
     }
+
+    @Override
+    public void get() {
+
+    }
 }

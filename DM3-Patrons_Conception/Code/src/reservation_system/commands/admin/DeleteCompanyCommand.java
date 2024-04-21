@@ -1,8 +1,10 @@
 package reservation_system.commands.admin;
 
+import reservation_system.users.controller.admin.Admin;
+
 public class DeleteCompanyCommand extends AdminCommand {
-    public DeleteCompanyCommand(Object i, Object r) {
-        super(i, r);
+    public DeleteCompanyCommand(Admin a) {
+        super(a);
     }
 
     @Override

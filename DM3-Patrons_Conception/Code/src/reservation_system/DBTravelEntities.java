@@ -1,30 +1,20 @@
 package reservation_system;
 
 import reservation_system.travel_entities.TravelEntity;
-import reservation_system.visitor.Visitable;
-import reservation_system.visitor.Visitor;
+
 
 import java.util.HashMap;
 
 public class DBTravelEntities extends Subject {
-
-	public DBTravelEntities() {
-
-	}
-
+	private SubscriptionManager subscriptionManager = new SubscriptionManager().getInstance();
 	private HashMap<String, TravelEntity> db;
 
 	public HashMap<String, TravelEntity> getState() {
-		// TODO - implement ReservationSystem.DBTravelEntities.getState
-		throw new UnsupportedOperationException();
+		return db;
 	}
-
-	/**
-	 * 
-	 * @param db
-	 */
+	
 	public void setState(HashMap<String, TravelEntity> db) {
-		// TODO - implement ReservationSystem.DBTravelEntities.setState
-		throw new UnsupportedOperationException();
+		this.db = db;
+		subscriptionManager.notify();
 	}
 }

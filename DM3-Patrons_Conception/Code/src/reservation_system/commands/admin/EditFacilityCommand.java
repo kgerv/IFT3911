@@ -1,8 +1,10 @@
 package reservation_system.commands.admin;
 
+import reservation_system.users.controller.admin.Admin;
+
 public class EditFacilityCommand extends AdminCommand {
-    public EditFacilityCommand(Object i, Object r) {
-        super(i, r);
+    public EditFacilityCommand(Admin a) {
+        super(a);
     }
 
     @Override

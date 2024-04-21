@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class AdminAirline implements AdminInterest {
 
@@ -21,13 +22,8 @@ public class AdminAirline implements AdminInterest {
     }
 
     @Override
-    public void display() {
-
-    }
-
-    @Override
     public void addCompany(List<String> args) {
-
+        
     }
 
     @Override

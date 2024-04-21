@@ -11,10 +11,6 @@ public class AdminCruiseline implements AdminInterest {
 
     }
 
-    @Override
-    public void display() {
-
-    }
 
     @Override
     public void addCompany(List<String> args) {

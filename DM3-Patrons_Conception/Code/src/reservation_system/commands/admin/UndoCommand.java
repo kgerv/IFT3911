@@ -1,8 +1,10 @@
 package reservation_system.commands.admin;
 
+import reservation_system.users.controller.admin.Admin;
+
 public class UndoCommand extends AdminCommand {
-    public UndoCommand(Object i, Object r) {
-        super(i, r);
+    public UndoCommand(Admin a) {
+        super(a);
     }
 
     @Override

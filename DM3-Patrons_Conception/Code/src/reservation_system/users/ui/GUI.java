@@ -6,7 +6,6 @@ public interface GUI {
      *
      * @param e
      */
-    void listen(Event e);
 
     void display();
 

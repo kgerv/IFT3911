@@ -1,8 +1,9 @@
 package reservation_system.travel_entities;
 
+import java.util.List;
 public interface TravelEntityManager {
 
-	void add();
+	void add(TravelEntity e);
 
 	/**
 	 * 
@@ -15,5 +16,7 @@ public interface TravelEntityManager {
 	 * @param e
 	 */
 	void delete(TravelEntity e);
+
+	List<TravelEntity> get();
 
 }

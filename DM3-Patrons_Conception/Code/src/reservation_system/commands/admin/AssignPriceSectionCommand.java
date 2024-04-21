@@ -1,8 +1,10 @@
 package reservation_system.commands.admin;
 
+import reservation_system.users.controller.admin.Admin;
+
 public class AssignPriceSectionCommand extends AdminCommand {
-    public AssignPriceSectionCommand(Object i, Object r) {
-        super(i, r);
+    public AssignPriceSectionCommand(Admin a) {
+        super(a);
     }
 
     @Override
