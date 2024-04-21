@@ -18,8 +18,6 @@ public interface AdminInterest {
 	 */
 	void updateInterest(Admin context);
 
-	void display();
-
 	void addCompany(List<String> args);
 
 	void editCompany(List<String> args);

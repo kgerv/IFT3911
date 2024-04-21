@@ -1,7 +1,16 @@
 package reservation_system;
 
-public interface Controller {
+import reservation_system.users.ui.GUI;
+import reservation_system.visitor.Visitor;
 
-	void displayTravelByOrigin();
+public abstract class Controller {
+
+	private GUI view;
+	private Visitor visitor;
+
+	public Controller(GUI g, Visitor v) {
+		this.view = g;
+		this.visitor = v;
+	}
 
 }

@@ -10,89 +10,74 @@ import reservation_system.visitor.Visitor;
 
 import java.util.List;
 
-public class Admin implements Visitor, Controller {
+public class Admin extends Controller {
 
 	private List<Command> commands;
 	private AdminInterest interest;
 	private TravelEntityFactory factory;
 	private GUI view;
 
-	public Admin(GUI view, AdminInterest i) {
-		this.view = view;
+	public Admin(GUI g, Visitor v, AdminInterest i) {
+		super(g, v);
 		this.interest = i;
 
 	}
 
-	public void undo() {
-		// TODO - implement Admin.undo
-		throw new UnsupportedOperationException();
-	}
-
-	public void create() {
-		// TODO - implement Admin.create
-		throw new UnsupportedOperationException();
-	}
-
-	public void displayTravel() {
+	private List<String> displayTravel() {
 		// TODO - implement Admin.displayTravel
 		throw new UnsupportedOperationException();
 	}
 
-	public void display() {
-		// TODO - implement Admin.display
-		throw new UnsupportedOperationException();
-	}
-
 	public void addCompany() {
-
+		interest.addCompany();
 	}
 
 	public void editCompany() {
-
+		interest.editCompany();
 	}
 
 	public void deleteCompany() {
-
+		interest.deleteCompany();
 	}
 
 	public void addTravel() {
-
+		interest.addTravel();
 	}
 
 	public void editTravel() {
-
+		interest.editTravel();
 	}
 
 	public void deleteTravel() {
-
+		interest.deleteTravel();
 	}
 
 	public void addFacility() {
-
+		interest.addFacility();
 	}
 
 	public void editFacility() {
-
+		interest.editFacility();
 	}
 
 	public void deleteFacility() {
-
+		interest.deleteFacility();
 	}
 
 	public void assignPriceToSection() {
-
+		interest.assignPriceToSection();
 	}
 
 	public void displayTravelByOrigin() {
-
+		interest.displayTravelByOrigin();
 	}
 
 	public void displayTravelByDestination() {
-
+		interest.displayTravelByDestination();
 	}
 
 	public void displayTravelByCompany() {
-
+		interest.displayTravelByCompany();
 	}
 
 	/**
@@ -108,34 +93,4 @@ public class Admin implements Visitor, Controller {
 	 * @param f
 	 */
 	public void setFactory(TravelEntityFactory f) { this.factory = f; }
-
-	@Override
-	public void visit(DBTravelEntities db) {
-
-	}
-
-	@Override
-	public void visit(Travel t) {
-
-	}
-
-	@Override
-	public void visit(Facility f) {
-
-	}
-
-	@Override
-	public void visit(Company c) {
-
-	}
-
-	@Override
-	public void visit(Vehicle v) {
-
-	}
-
-	@Override
-	public void visit(Section s) {
-
-	}
 }

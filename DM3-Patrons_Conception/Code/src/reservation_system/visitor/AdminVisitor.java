@@ -1,19 +1,9 @@
-package reservation_system.commands;
+package reservation_system.visitor;
 
+import reservation_system.DBSearch;
 import reservation_system.travel_entities.*;
-import reservation_system.users.ui.GUI;
 
-public class DeleteCommand extends Command {
-
-    public DeleteCommand(GUI gui) {
-        super(gui);
-    }
-
-    @Override
-    public void execute() {
-
-    }
-
+public class AdminVisitor implements Visitor {
     @Override
     public void visit(Travel t) {
 
@@ -36,6 +26,11 @@ public class DeleteCommand extends Command {
 
     @Override
     public void visit(Section s) {
+
+    }
+
+    @Override
+    public void visit(DBSearch r) {
 
     }
 }

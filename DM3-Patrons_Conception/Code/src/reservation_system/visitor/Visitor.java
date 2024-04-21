@@ -1,5 +1,6 @@
 package reservation_system.visitor;
 
+import reservation_system.DBSearch;
 import reservation_system.travel_entities.Company;
 import reservation_system.DBTravelEntities;
 import reservation_system.travel_entities.Facility;
@@ -39,4 +40,9 @@ public interface Visitor {
 	 */
 	void visit(Section s);
 
+	/**
+	 *
+	 * @param r
+	 */
+	void visit(DBSearch r);
 }

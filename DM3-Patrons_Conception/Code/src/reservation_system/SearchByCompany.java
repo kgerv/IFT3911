@@ -1,10 +1,18 @@
 package reservation_system;
 
-public class SearchByCompany implements DBSearch {
+import reservation_system.visitor.Visitor;
 
-	public void search() {
+import java.util.List;
+
+public class SearchByCompany extends DBSearch {
+
+	public List<String> search() {
 		// TODO - implement SearchByCompany.search
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void accept(Visitor v) {
+
+	}
 }

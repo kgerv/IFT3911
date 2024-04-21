@@ -8,14 +8,20 @@ import reservation_system.travel_entities.Facility;
 import reservation_system.travel_entities.Section;
 import reservation_system.travel_entities.Travel;
 import reservation_system.travel_entities.Vehicle;
+import reservation_system.users.ui.GUI;
 import reservation_system.users.ui.client.ClientGUI;
 import reservation_system.visitor.Visitor;
 
-public class Client implements Visitor, Controller {
+public class Client extends Controller {
 
 	private Reservation currentReservation;
 	private ClientGUI view;
-	//private ClientInterest interest;
+	private ClientInterest interest;
+
+	public Client(GUI g, Visitor v) {
+		super(g, v);
+	}
+
 
 	public void searchAvailable() {
 		// TODO - implement Client.searchAvailable
@@ -47,38 +53,4 @@ public class Client implements Visitor, Controller {
 		throw new UnsupportedOperationException();
 	}
 
-	@Override
-	public void visit(DBTravelEntities db) {
-
-	}
-
-	@Override
-	public void visit(Travel t) {
-
-	}
-
-	@Override
-	public void visit(Facility f) {
-
-	}
-
-	@Override
-	public void visit(Company c) {
-
-	}
-
-	@Override
-	public void visit(Vehicle v) {
-
-	}
-
-	@Override
-	public void visit(Section s) {
-
-	}
-
-	@Override
-	public void displayTravelByOrigin() {
-
-	}
 }

@@ -1,7 +1,15 @@
 package reservation_system;
 
-public interface DBSearch {
+import reservation_system.visitor.Visitable;
+import reservation_system.visitor.Visitor;
 
-	void search();
+import java.util.List;
+
+public abstract class DBSearch implements Visitable {
+	List<String> result;
+
+	public List<String> search() {
+		return result;
+	}
 
 }

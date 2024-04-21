@@ -1,8 +1,12 @@
 package reservation_system;
 
-public class SearchTravel implements DBSearch {
+import reservation_system.visitor.Visitor;
 
-	public void search() {
+import java.util.List;
+
+public class SearchTravel extends DBSearch {
+
+	public List<String> search() {
 		// TODO - implement SearchTravel.search
 		throw new UnsupportedOperationException();
 	}
@@ -17,4 +21,8 @@ public class SearchTravel implements DBSearch {
 		throw new UnsupportedOperationException();
 	}
 
+	@Override
+	public void accept(Visitor v) {
+
+	}
 }

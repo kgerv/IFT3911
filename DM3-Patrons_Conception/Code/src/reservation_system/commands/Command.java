@@ -6,26 +6,17 @@ import reservation_system.visitor.Visitor;
 
 import java.util.HashMap;
 // https://refactoring.guru/design-patterns/command/java/example and all descendants
-public abstract class Command implements Visitor {
-	public GUI gui;
-	private HashMap<String, TravelEntity> backup;
+public abstract class Command {
+	private Object invoker;
+	private Object receiver;
 
-	public Command(GUI gui) {
-		this.gui = gui;
+	public Command(Object i, Object r) {
+		this.invoker = i;
+		this.receiver = r;
 	}
 
 	public abstract void execute();
 
-	/**
-	 * 
-	 * @param db
-	 */
-	public void saveBackup(HashMap<String, TravelEntity> db) {
-		this.backup = null; // TODO
-	}
-
-	public void undo() {
-		// TODO
-	}
+	public abstract void undo();
 
 }
