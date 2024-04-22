@@ -27,23 +27,17 @@ public class ClientGUI extends Observer implements GUI {
 		System.out.println("1. ");
 	}
 
-	public void displaySearch() {
-		// TODO - implement ReservationSystem.User.UI.Client.ClientGUI.displaySearch
-		throw new UnsupportedOperationException();
+	@Override
+	public void cancel() {
+
 	}
 
-	public void displayReservation() {
-		// TODO - implement ReservationSystem.User.UI.Client.ClientGUI.displayReservation
-		throw new UnsupportedOperationException();
-	}
+	@Override
+	public void undo() {
 
-	public void displayPayment() {
-		// TODO - implement ReservationSystem.User.UI.Client.ClientGUI.displayPayment
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public void update(Subject s) {
-
 	}
 }

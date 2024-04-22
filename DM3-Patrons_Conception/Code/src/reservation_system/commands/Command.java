@@ -1,19 +1,11 @@
 package reservation_system.commands;
 
-import reservation_system.travel_entities.TravelEntity;
-import reservation_system.users.ui.GUI;
-import reservation_system.visitor.Visitor;
+import reservation_system.Controller;
 
-import java.util.HashMap;
+import java.util.List;
+
 // https://refactoring.guru/design-patterns/command/java/example and all descendants
-public abstract class Command {
-	private Object invoker;
-	private Object receiver;
-
-	public Command(Object i, Object r) {
-		this.invoker = i;
-		this.receiver = r;
-	}
+public interface Command {
 
 	public abstract void execute();
 

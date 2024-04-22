@@ -10,4 +10,8 @@ public interface GUI {
 
     void display();
 
+    void cancel();
+
+    void undo();
+
 }

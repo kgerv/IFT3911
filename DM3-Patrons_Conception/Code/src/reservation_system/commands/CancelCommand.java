@@ -1,15 +1,15 @@
 package reservation_system.commands;
 
-public class CancelCommand extends Command {
-    public CancelCommand(Object i, Object r) {
-        super(i, r);
-    }
+import reservation_system.users.ui.GUI;
+
+public class CancelCommand implements Command {
+    private GUI receiver;
 
     @Override
     public void execute() {
-
+        this.receiver.previousState();
     }
 
     @Override
-    public void undo() { /* Cannot undo cancel*/ }
+    public void undo() {} // Can't be undone
 }

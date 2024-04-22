@@ -4,27 +4,37 @@ import reservation_system.travel_entities.TravelEntity;
 import reservation_system.visitor.Visitable;
 import reservation_system.visitor.Visitor;
 
+import java.io.*;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
 
 public class DBTravelEntities extends Subject {
+	private Map<String, TravelEntity> db;
 
 	public DBTravelEntities() {
-
+		db = new HashMap<>();
+		try {
+			File save = new File("path/db.txt");
+			FileInputStream fis = new FileInputStream(save);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			db = (HashMap<String, TravelEntity>) ois.readObject();
+			ois.close();
+		} catch(IOException | ClassNotFoundException e) {
+			System.out.println("Error while loading database content");
+			e.printStackTrace();
+		}
 	}
 
-	private HashMap<String, TravelEntity> db;
-
-	public HashMap<String, TravelEntity> getState() {
-		// TODO - implement ReservationSystem.DBTravelEntities.getState
-		throw new UnsupportedOperationException();
+	public Map<String, TravelEntity> getDB() {
+		return db;
 	}
 
 	/**
 	 * 
-	 * @param db
+	 * @param map
 	 */
-	public void setState(HashMap<String, TravelEntity> db) {
-		// TODO - implement ReservationSystem.DBTravelEntities.setState
-		throw new UnsupportedOperationException();
+	public void setDB(Map<String, TravelEntity> map) {
+		db = map;
 	}
 }

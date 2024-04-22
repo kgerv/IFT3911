@@ -1,5 +1,7 @@
 package reservation_system;
 
+import reservation_system.commands.Command;
+import reservation_system.commands.admin.AddCompanyCommand;
 import reservation_system.users.ui.admin.AdminGUI;
 import reservation_system.users.ui.client.ClientGUI;
 import reservation_system.users.ui.GUI;
@@ -16,8 +18,6 @@ public class ReservationSystem {
 		SubscriptionManager subManager = new SubscriptionManager();
 		GUI view = null;
 		Controller controller;
-
-		DBTravelEntities model = new DBTravelEntities();
 
 		Scanner scan = new Scanner(System.in);  // Create a Scanner object
 		System.out.println("1. Admin\n2. Client\n0. Exit");
