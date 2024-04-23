@@ -2,6 +2,7 @@ package reservation_system;
 
 import reservation_system.users.ui.admin.AdminGUI;
 import reservation_system.users.ui.client.ClientGUI;
+import reservation_system.users.controller.admin.Admin;
 import reservation_system.users.ui.GUI;
 
 import java.util.Scanner;
@@ -15,7 +16,7 @@ public class ReservationSystem {
 	public static void main(String[] args) {
 		SubscriptionManager subManager = new SubscriptionManager();
 		GUI view = null;
-		Controller controller;
+		Admin admin = new Admin(view, null);
 
 		DBTravelEntities model = new DBTravelEntities();
 
@@ -28,7 +29,7 @@ public class ReservationSystem {
 			case "0":
 				System.exit(0);
 			case "1":
-				view = new AdminGUI(null);
+				view = new AdminGUI(admin);
 				break;
 			case "2":
 				view = new ClientGUI(null);

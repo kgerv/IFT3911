@@ -21,7 +21,7 @@ public class AdminVisitor implements Visitor {
 
     @Override
     public void visit(Vehicle v) {
-
+        
     }
 
     @Override

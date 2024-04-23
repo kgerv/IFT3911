@@ -1,8 +1,5 @@
-package reservation_system.commands.admin;
+package reservation_system.commands;
 
-import reservation_system.Controller;
-
-import java.util.List;
 
 // https://refactoring.guru/design-patterns/command/java/example and all descendants
 public interface Command {

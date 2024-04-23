@@ -46,6 +46,7 @@ public class Admin implements Visitor, Controller {
 	}
 
 	public void addCompany(List<String> args) {
+		
 		interest.addCompany(args);
 	}
 

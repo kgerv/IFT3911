@@ -1,6 +1,6 @@
 package reservation_system;
 
-import ReservationSystem.PricingStratgy;
+import reservation_system.PricingStratgy;
 public class BookingContext {
 
 	public PricingStrategy pricingStrategy;
