@@ -17,6 +17,7 @@ public class DeleteTravelCommand extends AdminCommand {
 
     @Override
     public void undo() {
-        this.admin.addTravel(args);
+        // TODO - fix undo
+        // this.admin.addTravel(args);
     }
 }

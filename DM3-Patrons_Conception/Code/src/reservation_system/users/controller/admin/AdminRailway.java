@@ -64,17 +64,17 @@ public class AdminRailway implements AdminInterest {
     }
 
     @Override
-    public void displayTravelByOrigin(String origin) {
+    public void displayTravelByOrigin(List<String> origin) {
 
     }
 
     @Override
-    public void displayTravelByDestination(String destination) {
+    public void displayTravelByDestination(List<String> destination) {
 
     }
 
     @Override
-    public void displayTravelByCompany(String company) {
+    public void displayTravelByCompany(List<String> company) {
 
     }
 }
