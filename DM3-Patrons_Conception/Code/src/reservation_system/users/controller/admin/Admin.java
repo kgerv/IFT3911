@@ -1,10 +1,12 @@
 package reservation_system.users.controller.admin;
 
 import reservation_system.Controller;
-import reservation_system.commands.Command;
 import reservation_system.travel_entities.*;
 import reservation_system.DBTravelEntities;
 import reservation_system.Subject;
+
+import reservation_system.commands.Command;
+
 import reservation_system.users.ui.GUI;
 import reservation_system.visitor.AdminVisitor;
 import reservation_system.visitor.Visitor;
@@ -34,64 +36,62 @@ public class Admin {
 
 	}
 
-	public void addCompany() {
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter the name of the company");
-		String name = sc.nextLine();
-		args.add(name);
+	public void addCompany(List<String> args) {
+		
 		interest.addCompany(args);
-		sc.close();
-		
-		
 	}
 
-	public void editCompany() {
+	public void editCompany(List<String> args) {
 		interest.editCompany(args);
+
 	}
 
-	public void deleteCompany() {
+	public void deleteCompany(List<String> args) {
 		interest.deleteCompany(args);
 	}
 
-	public void addTravel() {
+	public void addTravel(List<String> args) {
 		interest.addTravel(args);
-	}
+	}	
 
-	public void editTravel() {
+	public void editTravel(List<String> args) {
 		interest.editTravel(args);
 	}
 
-	public void deleteTravel() {
+	public void deleteTravel(List<String> args) {
 		interest.deleteTravel(args);
 	}
 
-	public void addFacility() {
+	public void addFacility(List<String> args) {
 		interest.addFacility(args);
 	}
 
-	public void editFacility() {
+	public void editFacility(List<String> args) {
 		interest.editFacility(args);
 	}
 
-	public void deleteFacility() {
+	public void deleteFacility(List<String> args) {
 		interest.deleteFacility(args);
 	}
 
-	public void assignPriceToSection() {
+	public void assignPriceToSection(List<String> args) {
 		interest.assignPriceToSection(args);
 	}
 
-	public void displayTravelByOrigin() {
-		interest.displayTravelByOrigin(args);
+	public void displayTravelByOrigin(String origin) {
+		interest.displayTravelByOrigin(origin);
 	}
 
-	public void displayTravelByDestination() {
-		interest.displayTravelByDestination();
+	public void displayTravelByDestination(String destination) {
+		interest.displayTravelByDestination(destination);
+
 	}
 
-	public void displayTravelByCompany() {
-		interest.displayTravelByCompany();
+	public void displayTravelByCompany(String company) {
+		interest.displayTravelByCompany(company);
+
 	}
+
 
 	/**
 	 *
@@ -101,7 +101,7 @@ public class Admin {
 		this.interest = i;
 	}
 
-	public AdminInterest getIntrest() {
+	public AdminInterest getInterest() {
 		return this.interest;
 	}
 

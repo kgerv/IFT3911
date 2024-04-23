@@ -10,7 +10,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
-import java.util.Scanner;
+//importer le factory de AirTravel?
+
 
 public class AdminAirline implements AdminInterest {
 
@@ -58,7 +59,7 @@ public class AdminAirline implements AdminInterest {
 
     @Override
     public void editTravel(List<String> args) {
-
+        
     }
 
     @Override
