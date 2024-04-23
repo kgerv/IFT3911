@@ -9,8 +9,8 @@ public class ClientGUI extends Observer implements GUI {
 
 	private Client controller;
 
-	public ClientGUI(Client controller) {
-		this.controller = controller;
+	public ClientGUI() {
+		this.controller = new Client(this);
 	}
 
 	@Override

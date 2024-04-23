@@ -1,14 +1,13 @@
 package reservation_system;
 
-import reservation_system.commands.Command;
-import reservation_system.commands.admin.AddCompanyCommand;
+import reservation_system.users.controller.Controller;
 import reservation_system.users.ui.admin.AdminGUI;
+import reservation_system.users.ui.admin.AdminGUIMain;
 import reservation_system.users.ui.client.ClientGUI;
 import reservation_system.users.controller.admin.Admin;
 import reservation_system.users.ui.GUI;
 
 import java.util.Scanner;
-import reservation_system.users.controller.admin.Admin;
 
 public class ReservationSystem {
 
@@ -40,7 +39,7 @@ public class ReservationSystem {
 						String pass = sc.nextLine();
 
 						if (user.compareTo("admin") == 0 && pass.compareTo("admin") == 0) {
-							view = new AdminGUI(null);
+							view = new AdminGUI();
 							break;
 						} else {
 							System.out.println("Invalid username or password");
@@ -49,8 +48,7 @@ public class ReservationSystem {
 
 					break;
 				case "2":
-					view = new ClientGUI(null);
-
+					view = new ClientGUI();
 					break;
 				default:
 					System.out.println("Invalid choice\n");

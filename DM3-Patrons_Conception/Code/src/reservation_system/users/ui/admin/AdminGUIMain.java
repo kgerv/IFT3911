@@ -3,9 +3,7 @@ package reservation_system.users.ui.admin;
 import reservation_system.commands.Invoker;
 import reservation_system.commands.admin.AdminAirlineCommand;
 import reservation_system.commands.admin.AdminCruiselineCommand;
-import reservation_system.users.controller.admin.Admin;
-import reservation_system.users.controller.admin.AdminAirline;
-import reservation_system.users.ui.GUI;
+import reservation_system.commands.admin.AdminRailwayCommand;
 
 import java.util.Scanner;
 
@@ -24,12 +22,16 @@ public class AdminGUIMain implements AdminGUIState {
         cruiseButton.setCommand(new AdminCruiselineCommand(this.view));
         trainButton.setCommand(new AdminRailwayCommand(this.view));
 
-        Scanner sc = new Scanner(System.in);
         String in;
 
         do {
-            System.out.println("[1] Air Travel\n[2] Cruise Travel\n[3] Train Travel\n[0]8/ Exit");
+            Scanner sc = new Scanner(System.in);
+            System.out.println("---------------------");
+            System.out.println("----- Main Menu -----");
+            System.out.println("[1] Air Travel\n[2] Cruise Travel\n[3] Train Travel\n[0] Exit");
+            System.out.println("---------------------");
             in = sc.nextLine();
+            sc.close();
             switch(in) {
                 case "1":
                     airButton.execute();
@@ -44,7 +46,7 @@ public class AdminGUIMain implements AdminGUIState {
                     cancel();
                     break;
                 default:
-                    System.out.println("Invalid entry");
+                    System.out.println("Invalid entry\n");
             }
         } while(!(in.equals("0") || in.equals("1") || in.equals("2") || in.equals("3")));
     }

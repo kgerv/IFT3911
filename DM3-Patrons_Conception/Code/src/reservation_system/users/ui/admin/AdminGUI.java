@@ -1,16 +1,14 @@
 package reservation_system.users.ui.admin;
 
-import java.util.Scanner;
-
 import reservation_system.Subject;
+import reservation_system.commands.Invoker;
+import reservation_system.commands.admin.*;
 import reservation_system.users.controller.Observer;
 import reservation_system.users.controller.admin.Admin;
-import reservation_system.users.controller.admin.AdminAirline;
-import reservation_system.users.controller.admin.AdminCruiseline;
-import reservation_system.users.controller.admin.AdminRailway;
 import reservation_system.users.ui.GUI;
-import java.util.List;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class AdminGUI extends Observer implements GUI {
@@ -18,13 +16,114 @@ public class AdminGUI extends Observer implements GUI {
 	private Admin controller;
 	protected String[] keywords;
 
-	public AdminGUI(Admin controller, AdminGUIState state) {
-		this.state = state;
-		this.controller = controller;
+	public AdminGUI() {
+		this.state = new AdminGUIMain(this);
+		this.controller = new Admin(this);
 	}
 
 	@Override
-	public void display() {}
+	public void display() {
+		int choice;
+		Scanner sc = new Scanner(System.in);
+		Invoker button = new Invoker();
+		do {
+			System.out.println("----------------------------");
+			System.out.println(this.keywords[0] + " Manager:");
+			System.out.println("----------------------------");
+			System.out.println("[1] Add Company");
+			System.out.println("[2] Edit Company");
+			System.out.println("[3] Delete Company");
+			System.out.println("[4] Add Travel");
+			System.out.println("[5] Edit Travel");
+			System.out.println("[6] Delete Travel");
+			System.out.println("[7] Add Facility");
+			System.out.println("[8] Edit Facility");
+			System.out.println("[9] Delete Facility");
+			System.out.println("[10] Display " + this.keywords[3] + " by origin");
+			System.out.println("[11] Display " + this.keywords[3] + " by destination");
+			System.out.println("[12] Display " + this.keywords[3] + " by company");
+			System.out.println("[13] Assign price to section");
+			System.out.println("[0] Exit");
+			System.out.println("----------------------------");
+
+			choice = sc.nextInt();
+			List<String> args = new ArrayList<>();
+
+
+			switch (choice) {
+				case 1:
+					System.out.println("company infos");
+					button.setCommand(new AddCompanyCommand(args, controller));
+
+					break;
+				case 2:
+					System.out.println();
+					button.setCommand(new EditCompanyCommand(args, controller));
+
+					break;
+				case 3:
+					System.out.println();
+					button.setCommand(new DeleteCompanyCommand(args, controller));
+
+					break;
+				case 4:
+					System.out.println();
+					button.setCommand(new AddFacilityCommand(args, controller));
+
+					break;
+				case 5:
+					System.out.println();
+					button.setCommand(new EditFacilityCommand(args, controller));
+
+					break;
+				case 6:
+					System.out.println();
+					button.setCommand(new DeleteFacilityCommand(args, controller));
+
+					break;
+				case 7:
+					System.out.println();
+					button.setCommand(new AddTravelCommand(args, controller));
+
+					break;
+				case 8:
+					System.out.println();
+					button.setCommand(new EditTravelCommand(args, controller));
+
+					break;
+				case 9:
+					System.out.println();
+					button.setCommand(new DeleteTravelCommand(args, controller));
+
+					break;
+				case 10:
+					System.out.println();
+					button.setCommand(new DisplayByOriginCommand(args, controller));
+
+					break;
+				case 11:
+					System.out.println();
+					button.setCommand(new DisplayByArrivalCommand(args, controller));
+
+					break;
+				case 12:
+					System.out.println();
+					button.setCommand(new DisplayByCompanyCommand(args, controller));
+
+					break;
+				case 13:
+					System.out.println();
+					button.setCommand(new AssignPriceSectionCommand(args, controller));
+
+					break;
+				default:
+					System.out.println("Invalid choice");
+			}
+		} while(choice < 0 || choice > 13);
+
+		sc.close();
+		button.execute();
+	}
 
 	@Override
 	public void cancel() {}
@@ -37,161 +136,7 @@ public class AdminGUI extends Observer implements GUI {
 	}
 
 
-	private Admin admin;
-	private boolean isConnected = false;
-	private List<String> args;
-
-	public AdminGUI(Admin admin) {
-		this.admin = admin;
-	}
-
-	@Override
-	public void display() {
-		if(homeMenu){
-			displayMenu();
-		}else{
-			displayMain();
-		}
-	}
-
-	public void setHomeMenu(boolean homeMenu){
-		this.homeMenu = homeMenu;
-		display();
-	}
-
-	public void displayMain(){
-		System.out.println("Welecome "+controller.getIntrest().getClass().getName());
-		System.out.println("1. Add Company");
-		System.out.println("2. Edit Company");
-		System.out.println("3. Delete Company");
-		System.out.println("4. Add Travel");
-		System.out.println("5. Edit Travel");
-		System.out.println("6. Delete Travel");
-		System.out.println("7. Add Facility");
-		System.out.println("8. Edit Facility");
-		System.out.println("9. Delete Facility");
-		System.out.println("10. Exit");
-
-		Scanner scan = new Scanner(System.in);
-		int choice = scan.nextInt();
-		Button button = new Button();
-		
-		switch(choice) {
-			case 1:
-				button.setCommand(new AddCompanyCommand(controller));
-				button.execute();
-				break;
-			case 2:
-				controller.editCompany();
-				break;
-			case 3:
-				controller.deleteCompany();
-				break;
-			case 4:
-				controller.addTravel();
-				break;
-			case 5:
-				controller.editTravel();
-				break;
-			case 6:
-				controller.deleteTravel();
-				break;
-			case 7:
-				controller.addFacility();
-				break;
-			case 8:
-				controller.editFacility();
-				break;
-			case 9:
-				controller.deleteFacility();
-				break;
-			case 10:
-				break;
-			default:
-				System.out.println("Invalid choice");
-				break;
-		}
-		scan.close();
-	}
-
-
-
-	public void displayMenu(){
-		Scanner scan = new Scanner(System.in);
-
-		System.out.println("1. Airline Entities");
-		System.out.println("2. Cruise Entities");
-		System.out.println("3. Train Entities");
-		System.out.println("4. Exit");
-
-		int choice = scan.nextInt();
-
-		switch(choice){
-			case 1:
-				buttonAirEntities();
-				break;
-			case 2:
-				buttonCruiseEntities();
-				break;
-			case 3:
-				buttonTrainEntities();
-				break;
-			case 4:
-				System.exit(0);
-				break;
-			default:
-				System.out.println("Invalid choice");
-				break;
-		}
-		scan.close();
-	}
-
-	public void displayMenu() {
-		Scanner scan = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("Admin GUI");
-		System.out.println("1. Manage Airline Companies");
-		System.out.println("2. Manage Cruise Companies");
-		System.out.println("3. Manage Train Companies");
-		System.out.println("0. Exit");
-
-		String choice = scan.nextLine();
-
-		switch(choice) {
-			case "0":
-				System.exit(0);
-			case "1":
-				buttonAirEntities();
-				break;
-			case "2":
-				buttonCruiseEntities();
-				break;
-			case "3":
-				buttonTrainEntities();
-				break;
-			default:
-				System.out.println("Invalid choice");
-		}
-		scan.close();
-	}
-
-	public void displayAdmin(){
-		Scanner scan = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("Welcome to"+admin.getInterest().getClass().getName());
-		System.out.println("1. Add Company");
-		System.out.println("2. Edit Company");
-		System.out.println("3. Delete Company");
-		System.out.println("4. Add Travel");
-		System.out.println("5. Edit Travel");
-		System.out.println("6. Delete Travel");
-		System.out.println("7. Add Facility");
-		System.out.println("8. Edit Facility");
-		System.out.println("9. Delete Facility");
-		System.out.println("10. Display Travel");
-		
-		System.out.println("0. Exit");
-
-		String choice = scan.nextLine();
-
+/* start request to user
 		switch (choice) {	
 			case "0":
 				System.exit(0);
@@ -277,45 +222,10 @@ public class AdminGUI extends Observer implements GUI {
 		scan.close();
 		args.clear();
 	
-	}
-
-
-	public void displayManager() {
-		if(!isConnected){
-			displayMenu();
-		}
-		else{
-			displayAdmin();
-		}
-	}
-
-	private void buttonAirEntities(){
-		AdminAirline adminAirline = new AdminAirline();
-		admin.setInterest(adminAirline);
-		setIsConnected(true);
-	}
-	private void buttonCruiseEntities(){
-		AdminCruiseline adminCruiseline = new AdminCruiseline();
-		admin.setInterest(adminCruiseline);
-		setIsConnected(true);
-	}
-	private void buttonTrainEntities(){
-		AdminRailway adminRailway = new AdminRailway();
-		admin.setInterest(adminRailway);
-		setIsConnected(true);
-	}
-
-	private void setIsConnected(boolean isConnected){
-		this.isConnected = isConnected;
-		displayManager();
-	}
+	*/
 
 	@Override
 	public void update(Subject s) {
 
-	}
-
-	public Admin getAdmin() {
-		return admin;
 	}
 }

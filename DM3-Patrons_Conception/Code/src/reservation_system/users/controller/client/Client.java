@@ -1,13 +1,7 @@
 package reservation_system.users.controller.client;
 
-import reservation_system.Controller;
-import reservation_system.travel_entities.Company;
-import reservation_system.DBTravelEntities;
+import reservation_system.users.controller.Controller;
 import reservation_system.Reservation;
-import reservation_system.travel_entities.Facility;
-import reservation_system.travel_entities.Section;
-import reservation_system.travel_entities.Travel;
-import reservation_system.travel_entities.Vehicle;
 import reservation_system.users.ui.GUI;
 import reservation_system.users.ui.client.ClientGUI;
 import reservation_system.visitor.Visitor;
@@ -15,11 +9,9 @@ import reservation_system.visitor.Visitor;
 public class Client extends Controller {
 
 	private Reservation currentReservation;
-	private ClientGUI view;
-	private ClientInterest interest;
 
-	public Client(GUI g, Visitor v) {
-		super(g, v);
+	public Client(ClientGUI g) {
+		super(g);
 	}
 
 

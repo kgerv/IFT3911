@@ -13,6 +13,6 @@ public class AdminGUIAirline implements AdminGUIState {
 
     @Override
     public void updateKeywords(AdminGUI g) {
-        g.keywords = new String[]{"Airline", "Airport", "Airplane"};
+        g.keywords = new String[]{"Airline", "Airport", "Airplane", "Flight"};
     }
 }

@@ -14,6 +14,6 @@ public class AdminGUICruise implements AdminGUIState {
 
     @Override
     public void updateKeywords(AdminGUI g) {
-        g.keywords = new String[]{"Cruiseline", "Port", "Cruiseship"};
+        g.keywords = new String[]{"Cruiseline", "Port", "Cruiseship", "Cruise"};
     }
 }

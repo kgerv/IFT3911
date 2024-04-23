@@ -1,19 +1,16 @@
 package reservation_system.users.controller.admin;
 
-import reservation_system.Controller;
+import reservation_system.users.controller.Controller;
 import reservation_system.travel_entities.*;
-import reservation_system.DBTravelEntities;
-import reservation_system.Subject;
 
 import reservation_system.commands.Command;
 
-import reservation_system.users.ui.GUI;
+import reservation_system.users.ui.admin.AdminGUI;
 import reservation_system.visitor.AdminVisitor;
-import reservation_system.visitor.Visitor;
-import java.util.Scanner;
+
 import java.util.List;
 
-public class Admin {
+public class Admin extends Controller {
 
 	private List<Command> commands;
 	private AdminInterest interest;
@@ -21,8 +18,8 @@ public class Admin {
 	private AdminVisitor visitor;
 	private List<String> args;
 
-	public Admin() {
-		
+	public Admin(AdminGUI g) {
+		super(g);
 	}
 
 	private void displayTravel() {
@@ -37,7 +34,6 @@ public class Admin {
 	}
 
 	public void addCompany(List<String> args) {
-		
 		interest.addCompany(args);
 	}
 
@@ -50,8 +46,8 @@ public class Admin {
 		interest.deleteCompany(args);
 	}
 
-	public void addTravel(List<String> args) {
-		interest.addTravel(args);
+	public void addTravel(List<String> args, List<String> facilities) {
+		interest.addTravel(args, facilities);
 	}	
 
 	public void editTravel(List<String> args) {

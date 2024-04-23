@@ -1,6 +1,5 @@
 package reservation_system.commands.admin;
 
-import reservation_system.Controller;
 import reservation_system.users.controller.admin.Admin;
 
 import java.util.List;

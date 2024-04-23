@@ -13,6 +13,6 @@ public class AdminGUIRailway implements AdminGUIState {
 
     @Override
     public void updateKeywords(AdminGUI g) {
-        g.keywords = new String[]{"Railway", "Train station", "Train"};
+        g.keywords = new String[]{"Railway", "Train station", "Train", "Train route"};
     }
 }
