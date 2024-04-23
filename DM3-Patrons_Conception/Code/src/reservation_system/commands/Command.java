@@ -1,4 +1,4 @@
-package reservation_system.commands;
+package reservation_system.commands.admin;
 
 import reservation_system.Controller;
 

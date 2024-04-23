@@ -54,6 +54,7 @@ public class AdminGUI extends Observer implements GUI {
 			default:
 				System.out.println("Invalid choice");
 		}
+		scan.close();
 	}
 
 	public void displayManager() {

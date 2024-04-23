@@ -1,10 +1,12 @@
 package reservation_system.users.controller.admin;
 
 import reservation_system.Controller;
-import reservation_system.commands.Command;
 import reservation_system.travel_entities.*;
 import reservation_system.DBTravelEntities;
 import reservation_system.Subject;
+
+import reservation_system.commands.Command;
+
 import reservation_system.users.ui.GUI;
 import reservation_system.visitor.Visitor;
 
@@ -47,53 +49,57 @@ public class Admin implements Visitor, Controller {
 		interest.addCompany(args);
 	}
 
-	public void editCompany() {
+	public void editCompany(List<String> args) {
+		interest.editCompany(args);
 
 	}
 
-	public void deleteCompany() {
+	public void deleteCompany(List<String> args) {
+		interest.deleteCompany(args);
+	}
+
+	public void addTravel(List<String> args) {
+		interest.addTravel(args);
+	}	
+
+	public void editTravel(List<String> args) {
+		interest.editTravel(args);
+	}
+
+	public void deleteTravel(List<String> args) {
+		interest.deleteTravel(args);
+	}
+
+	public void addFacility(List<String> args) {
+		interest.addFacility(args);
+	}
+
+	public void editFacility(List<String> args) {
+		interest.editFacility(args);
+	}
+
+	public void deleteFacility(List<String> args) {
+		interest.deleteFacility(args);
+	}
+
+	public void assignPriceToSection(List<String> args) {
+		interest.assignPriceToSection(args);
+	}
+
+	public void displayTravelByOrigin(String origin) {
+		interest.displayTravelByOrigin(origin);
+	}
+
+	public void displayTravelByDestination(String destination) {
+		interest.displayTravelByDestination(destination);
 
 	}
 
-	public void addTravel() {
+	public void displayTravelByCompany(String company) {
+		interest.displayTravelByCompany(company);
 
 	}
 
-	public void editTravel() {
-
-	}
-
-	public void deleteTravel() {
-
-	}
-
-	public void addFacility() {
-
-	}
-
-	public void editFacility() {
-
-	}
-
-	public void deleteFacility() {
-
-	}
-
-	public void assignPriceToSection() {
-
-	}
-
-	public void displayTravelByOrigin() {
-
-	}
-
-	public void displayTravelByDestination() {
-
-	}
-
-	public void displayTravelByCompany() {
-
-	}
 
 	/**
 	 *

@@ -12,7 +12,7 @@ public class DisplayByCompanyCommand extends AdminCommand {
 
     @Override
     public void execute() {
-        this.admin.displayTravelByCompany(args);
+        this.admin.displayTravelByCompany(args.get(0));
     }
 
     @Override

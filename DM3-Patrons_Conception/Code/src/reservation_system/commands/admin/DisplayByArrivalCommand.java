@@ -11,7 +11,7 @@ public class DisplayByArrivalCommand extends AdminCommand {
 
     @Override
     public void execute() {
-        this.admin.displayTravelByDestination(args);
+        this.admin.displayTravelByDestination(args.get(0));
     }
 
     @Override
