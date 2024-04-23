@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>IFT3911 DM2 - Hiv24</title>
+    <title>IFT3911 DM3 - Hiv24</title>
     <style type="text/css">
         h4
         {
@@ -97,10 +97,10 @@
         Distribution des tâches</h2>
 
     <p>
-        <span class="todo" style="font-weight: bold;">Soumetteur: </span>
+        <span class="" style="font-weight: bold;">Soumetteur: Killian Gervais</span>
     </p>
 
-    <table class="todo" scellpadding="7px">
+    <table class="" scellpadding="7px">
         <thead>
             <tr>
                 <th class="first_col">
@@ -123,13 +123,13 @@
 
             <tr>
                 <td class="first_col">
-                    
+                    Diagramme classes
                 </td>
                 <td>
-                    0%
+                    80%
                 </td>
                 <td>
-                    0%
+                    20%
                 </td>
                 <td>
                     0%
@@ -137,22 +137,22 @@
             </tr>
             <tr>
                 <td class="first_col">
-                    
+                    Diagramme sequences
                 </td>
                 <td>
-                    0%
+                    75%
                 </td>
                 <td>
-                    0%
+                    20%
                 </td>
                 <td>
-                    0%
+                    5%
                 </td>
             </tr>
 
             <tr>
                 <td class="first_col">
-                    
+                    Diagramme paquet
                 </td>
                 <td>
                     0%
@@ -161,7 +161,7 @@
                     0%
                 </td>
                 <td>
-                    0%
+                    100%
                 </td>
             </tr>
 
@@ -170,10 +170,25 @@
                     Analyse design
                 </td>
                 <td>
+                    100%
+                </td>
+                <td>
                     0%
                 </td>
                 <td>
                     0%
+                </td>
+            </tr>
+            
+            <tr>
+                <td class="first_col">
+                    Code
+                </td>
+                <td>
+                    60%
+                </td>
+                <td>
+                    40%
                 </td>
                 <td>
                     0%
@@ -185,82 +200,163 @@
 
     <h2>Hypothèses</h2>
     <div>
-        <h2>Tâche 1 - Reproduction du design selon les patrons de conception demandés</h2>
+        <h2>Tâche 1 et 2 - Reproduction du design selon les patrons de conception demandés et autres patrons</h2>
         <div>
-            <ul>
-                <li>
-                    <h4>Fabrique</h4>
-                    <p>
-                        FA: 
-                        desavantages: pas de difference entre createCompany et createFacility pour Air, Train et Cruise => duplication de code
-                        difference pour travel entre Flight et les deux autres;
-                        avantages: Company, Travel et Facility sont lies par le type de voyage (Air, Train, Cruise)
-                        donc il est logique de les considerer comme des familles;
-                        1 seule factory par famille
+            <h3>Diagramme de classe</h3>
+            <figure>
+                <img src="assets/Design_Class_Diagram.svg" alt="Diagramme de classe">
+                <figcaption >Diagramme de classe</figcaption>
+            </figure>
 
-                        FM:
-                        desavantages: 3 factory pour Facility, Travel et Company: 9 totales;
-                        avantages: pas de duplication de code, on peut deja definir createOp() dans la classe abstraite; pas vrai pour Travel car Flight n'est pas définit comme TrainRoute et Cruise
-                        (1 arrets vs plusieurs)
+            <h3>Diagramme de séquences</h3>
+            <figure>
+                <img src="assets/Factory.svg" alt="Diagramme de séquence - fabriques">
+                <figcaption >Diagramme de séquence - fabriques</figcaption>
+            </figure>
 
-                        FA choisit
-                    </p>
-                </li>
-                <li>
-                    <h4>Singleton</h4>
-                    <p>
-                        fait
-                    </p>
-                </li>
-                <li>
-                    <h4>État</h4>
-                    <p></p>
-                </li>
-                <li>
-                    <h4>Observateur</h4>
-                    <p>
-                        Les observateurs sont Client et Admin (2 types differrents);
-                        Le sujet concret est le modele de la BD;
-                    </p>
-                </li>
-                <li>
-                    <h4>Commande</h4>
-                    <p>
-                        Invoker: AdminGUI
-                        Command: Command
-                        Concrete Command: 
-                            - add, edit, delete pour Company, Travel, Facility
-                            - add (create), edit (assignPrice) pour Section (delete pas utilise)
-                        Receiver: DB
-                        Client: Admin
-                    </p>
-                </li>
-                <li>
-                    <h4>Visiteur</h4>
-                    <p></p>
-                </li>
-            </ul>
+            <figure>
+                <img src="assets/State.svg" alt="Diagramme de séquence - états">
+                <figcaption >Diagramme de séquence - états</figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/Observer.svg" alt="Diagramme de séquence - observateur">
+                <figcaption >Diagramme de séquence - observateur</figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/Command.svg" alt="Diagramme de séquence - commandes">
+                <figcaption >Diagramme de séquence - commandes</figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/Visitor.svg" alt="Diagramme de séquence - visiteur">
+                <figcaption >Diagramme de séquence - visiteur</figcaption>
+            </figure>
+
+            <figure>
+                <img src="assets/Package Diagram.svg" alt="Diagramme de paquets">
+                <figcaption >Diagramme de paquets</figcaption>
+            </figure>
         </div>
     </div>
 
     <div>
-        <h2>Tâche 2 - Autres patrons</h2>
-        <p>
-            Factory Method: AddCommand, donc pas autres patrons
-            Template Method: EditCommand et DeleteCommand, ne creent pas d'objets,
-            donc pas des fabriques mais definissent un comportement
+        <h2>Identifications des patrons</h2>
+        <ul>
+            <li>
+                <h4>Fabrique comme singleton</h4>
+                <p>
+                    Factory: TravelEntityFactory<br>
+                    Concrete factory: AirTravelFactory, CruiseTravelFactory, TrainTravelFactory<br>
+                    Client: Admin
+                </p>
 
-            
-            Mediateur: SubscriptionManager
-        </p>
-    </div>
-
-    <div>
-        <h2>Tâche 3 - Révision du design</h2>
+            </li>
+            <li>
+                <h4>État</h4>
+                <p>
+                    Client: Reservation<br>
+                    Context: Place<br>
+                    Concrete context: Seat, Cabin<br>
+                    State: Availability<br>
+                    Concrete states: Available, Reserved, Assigned<br>
+                </p>
+                <p> Ce patron à aussi été utilisé pour AdminGUI et Admin</p>
+                <p>
+                    Client: AdminMainCommand, AdminCruiselineCommand, AdminRailwayCommand, AdminAirlineCommand<br>
+                    Context: AdminGUI<br>
+                    State: AdminGUIState<br>
+                    Concrete states: AdminGUIMain, AdminGUICruise, AdminGUIRailway, AdminGUIAirline
+                </p>
+                <p>
+                    Client: AdminCruiselineCommand, AdminRailwayCommand, AdminAirlineCommand
+                    Context: Admin
+                    State: AdminInterest
+                    Concrete states: AdminCruiseline, AdminRailway, AdminAirline
+                </p>
+                
+            </li>
+            <li>
+                <h4>Observateur</h4>
+                <p>
+                    Observer: Observer (abstract)<br>
+                    Concrete observer: ClientGUI et AdminGUI<br>
+                    Subject: Subject (abstract)<br>
+                    Concrete subject: DBTravelEntities<br>
+                    SunscriptionManager
+                </p>
+                <p>Nous avons choisit la variante qui utilise un mediateur pour attach, detach et notify</p>
+            </li>
+            <li>
+                <h4>Mediateur</h4>
+                <p>
+                    Concrete mediator: SubscriptionManager<br>
+                    Components: Observer, Subject<br>
+                </p>
+            </li>
+            <li>
+                <h4>Commande</h4>
+                <p>
+                    Client: AdminGUI<br>
+                    Invoker: Invoker<br>
+                    Command: Command<br>
+                    Concrete Command: enfants de Command
+                    <ul>
+                        <li>add, edit, delete pour Company, Travel, Facility</li>
+                        <li>AssignPriceSectionCommand</li>
+                        <li>display par origin, destination et compagnie</li>
+                        <li>undo</li>
+                        <li>changement de l'etat de la vue admin (Admin*CompanyType ou Main*Command)</li>
+                    </ul>
+                    Receiver: Admin
+                </p>
+            </li>
+            <li>
+                <h4>Visiteur</h4>
+                <p>
+                    Visitor: Visitor (interface)<br>
+                    Concrete visitor: AdminVisitor, ClientVisitor<br>
+                    Visitable: Visitable (interface)<br>
+                    Visitable elements: TravelEntity (enfants inclus), DBSearch (enfants inclus)<br>
+                    Client: Admin, Client
+                </p>
+            </li>
+            <li>
+                <h4>Chaine de responsabilité</h4>
+                <p>
+                    Invoker -> AdminCommand -> Admin:
+                    <ul>
+                        <li>
+                            <p>creation: -> TravelEntityFactory -> TravelEntityManager</p>
+                        </li>
+                        <li>edit, delete: -> TravelEntityManager</li>
+                        <li>recherche: -> DBSearch</li>
+                    </ul>
+                </p>
+            </li>
+        </ul>
+        
     </div>
     
     <div>
         <h2>Tâche 4 - Analyse de la qualité du design</h2>
+        <p>
+            Ce design n'est pas tant eloigne du design que nous avions fait lors du DM2. Les ameliorations apportes proviennent des ajouts de classe qui dont en sorte que chaque element de notre design respecte plus le SRP et CRP.
+        </p>
+        <p>
+            Ce dernier notamment du à l'utilisation des patrons de commande, chaine de responsabilite, visiteur et mediateur.
+        </p>
+        <p>
+            Nous avons essayé d'utiliser au plus des interfaces ou classe abstraite pour respecter le OCP et le DIP lorsque des actions similaire sur des entites differentes sont effectuees, notamment avec les patrons d'etats pour Place, Admin et AdminGU, ainsi que pour TravelEntity, TravelEntityManager (ISR aussi pour celle-ci), DBSearch, Command et bien sur les patrons de fabrique, visiteur et observateur.
+        </p>
+        <p>
+            Pour le patron de fabrique nous avons choisit d'utiliser des fabriques abstraites avec les type de voyage étant donné que cela fonctionne parfaitement avec l'emploi de patrons d'etats pour Admin, qui vient definir le type de voyage qui interesse l'utilisateur.
+        </p>
+        <p>
+            En comparaison a notre DM2, le logiciel est plus facilement maintenable, malgres le fait qu'il possede plus d'element, et beaucoup de ses elements peuvent etre reutilise dans d'autres context avec un nombre de modification minimal.
+        </p>
+        
     </div>
 </body>
 </html>
