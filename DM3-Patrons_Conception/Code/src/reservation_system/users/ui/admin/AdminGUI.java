@@ -5,21 +5,16 @@ import reservation_system.users.controller.Observer;
 import reservation_system.users.controller.admin.Admin;
 import reservation_system.users.ui.GUI;
 
+import java.util.Scanner;
+
 public class AdminGUI extends Observer implements GUI {
-
+	private AdminGUIState state;
 	private Admin controller;
+	protected String[] keywords;
 
-	public AdminGUI(Admin controller) {
+	public AdminGUI(Admin controller, AdminGUIState state) {
+		this.state = state;
 		this.controller = controller;
-	}
-
-	/**
-	 * 
-	 * @param e
-	 */
-	public void listen(Event e) {
-		// TODO - implement ReservationSystem.User.UI.Admin.AdminGUI.listen
-		throw new UnsupportedOperationException();
 	}
 
 	@Override
@@ -27,16 +22,17 @@ public class AdminGUI extends Observer implements GUI {
 
 	}
 
-	public void displayManager() {
-		// TODO - implement ReservationSystem.User.UI.Admin.AdminGUI.displayManager
-		throw new UnsupportedOperationException();
+	@Override
+	public void cancel() {
+
 	}
 
-	// change state of view between types
+	@Override
+	public void undo() { } // Nothing to undo
 
-	private buttonAirEntities(){}
-	private buttonCruiseEntities(){}
-	private buttonTrainEntities(){}
+	public void displayManager(AdminGUIState s) {
+		this.state = s;
+	}
 
 	@Override
 	public void update(Subject s) {

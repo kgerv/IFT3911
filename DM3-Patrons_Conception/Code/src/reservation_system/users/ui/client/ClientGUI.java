@@ -13,15 +13,6 @@ public class ClientGUI extends Observer implements GUI {
 		this.controller = controller;
 	}
 
-	/**
-	 * 
-	 * @param e
-	 */
-	public void listen(Event e) {
-		// TODO - implement ReservationSystem.User.UI.Client.ClientGUI.listen
-		throw new UnsupportedOperationException();
-	}
-
 	@Override
 	public void display() {
 		System.out.println("1. ");

@@ -15,30 +15,48 @@ public class ReservationSystem {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		SubscriptionManager subManager = new SubscriptionManager();
 		GUI view = null;
 		Controller controller;
+		String choice;
+		Scanner sc = new Scanner(System.in);
 
-		Scanner scan = new Scanner(System.in);  // Create a Scanner object
-		System.out.println("1. Admin\n2. Client\n0. Exit");
+		do {
+			System.out.println("----------------------------");
+			System.out.println("1. Admin\n2. Client\n0. Exit");
+			System.out.println("----------------------------");
+			choice = sc.nextLine();
 
-		String choice = scan.nextLine();
+			switch (choice) {
+				case "0":
+					System.exit(0);
+				case "1":
+					// mimic login process
+					for(int i = 0; i < 2; ++i) {
+						System.out.print("username: ");
+						String user = sc.nextLine();
+						System.out.print("\npassword: ");
+						String pass = sc.nextLine();
 
-		switch(choice) {
-			case "0":
-				System.exit(0);
-			case "1":
-				view = new AdminGUI(null);
-				break;
-			case "2":
-				view = new ClientGUI(null);
-				break;
-			default:
-				System.out.println("Invalid choice");
-		}
+						if (user.compareTo("admin") == 0 && pass.compareTo("admin") == 0) {
+							view = new AdminGUI(null);
+							break;
+						} else {
+							System.out.println("Invalid username or password");
+						}
+					}
 
+					break;
+				case "2":
+					view = new ClientGUI(null);
+
+					break;
+				default:
+					System.out.println("Invalid choice\n");
+			}
+		} while(!choice.equals("1") && !choice.equals("2"));
+
+		sc.close();
 		view.display();
-
 	}
 
 }
