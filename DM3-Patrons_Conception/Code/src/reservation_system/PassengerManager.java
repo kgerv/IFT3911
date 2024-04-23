@@ -3,9 +3,12 @@ package reservation_system;
 import reservation_system.travel_entities.TravelEntity;
 import reservation_system.travel_entities.TravelEntityManager;
 
+import java.util.List;
+
 public class PassengerManager implements TravelEntityManager {
+
     @Override
-    public void add() {
+    public void add(TravelEntity e) {
 
     }
 
@@ -17,5 +20,10 @@ public class PassengerManager implements TravelEntityManager {
     @Override
     public void delete(TravelEntity e) {
 
+    }
+
+    @Override
+    public List<TravelEntity> get() {
+        return null;
     }
 }

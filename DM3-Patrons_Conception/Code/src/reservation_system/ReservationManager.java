@@ -3,9 +3,12 @@ package reservation_system;
 import reservation_system.travel_entities.TravelEntity;
 import reservation_system.travel_entities.TravelEntityManager;
 
+import java.util.List;
+
 public class ReservationManager implements TravelEntityManager {
+
     @Override
-    public void add() {
+    public void add(TravelEntity e) {
 
     }
 
@@ -20,7 +23,8 @@ public class ReservationManager implements TravelEntityManager {
     }
 
     @Override
-    public void get() {
+    public List<TravelEntity> get() {
 
+        return null;
     }
 }

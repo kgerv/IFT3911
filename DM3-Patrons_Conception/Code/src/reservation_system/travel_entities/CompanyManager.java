@@ -26,7 +26,7 @@ public class CompanyManager implements TravelEntityManager {
     public List<TravelEntity> get() {
         List<TravelEntity> companies = new ArrayList<TravelEntity>();
         DBTravelEntities db = new DBTravelEntities();
-        HashMap<String,TravelEntity> state = db.getState();
+        HashMap<String,TravelEntity> state = db.getDB();
         
         //récupérer les companies
         for (String key : state.keySet()) {

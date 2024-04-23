@@ -10,7 +10,7 @@ import java.util.Scanner;
 import java.util.concurrent.Flow.Subscription;
 
 public class DBTravelEntities extends Subject {
-	private HasmapMap<String, TravelEntity> db;
+	private HashMap<String, TravelEntity> db;
 
 	public DBTravelEntities() {
 		db = new HashMap<>();
@@ -26,7 +26,7 @@ public class DBTravelEntities extends Subject {
 		}
 	}
 
-	public HasmapMap<String, TravelEntity> getDB() {
+	public HashMap<String, TravelEntity> getDB() {
 		return db;
 	}
 
@@ -36,6 +36,7 @@ public class DBTravelEntities extends Subject {
 	 */
 	public void setDB(HashMap<String, TravelEntity> map) {
 		db = map;
-		SubscriptionManager.getInstance().notify();
+		SubscriptionManager man = new SubscriptionManager();
+		man.getInstance().notify();
 	}
 }

@@ -27,7 +27,7 @@ public class FacilityManager implements TravelEntityManager {
     public List<TravelEntity> get() {
         List<TravelEntity> facilities = new ArrayList<TravelEntity>();
         DBTravelEntities db = new DBTravelEntities();
-        HashMap<String,TravelEntity> state = db.getState();
+        HashMap<String,TravelEntity> state = db.getDB();
         
         //récupérer les facilities
         for (String key : state.keySet()) {

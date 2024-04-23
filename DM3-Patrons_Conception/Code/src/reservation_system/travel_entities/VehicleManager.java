@@ -28,7 +28,7 @@ public class VehicleManager implements TravelEntityManager {
     public List<TravelEntity> get () {
         List<TravelEntity> vehicules = new ArrayList<TravelEntity>();
         DBTravelEntities db = new DBTravelEntities();
-        HashMap<String,TravelEntity> state = db.getState();
+        HashMap<String,TravelEntity> state = db.getDB();
 
         //récupérer seulement les voyages
         for (String key : state.keySet()) {

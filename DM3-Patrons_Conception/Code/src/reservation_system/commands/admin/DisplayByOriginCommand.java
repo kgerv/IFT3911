@@ -11,7 +11,7 @@ public class DisplayByOriginCommand extends AdminCommand{
 
     @Override
     public void execute() {
-        this.admin.displayTravelByOrigin(args.get(0));
+        this.admin.displayTravelByOrigin(args);
     }
 
     @Override
