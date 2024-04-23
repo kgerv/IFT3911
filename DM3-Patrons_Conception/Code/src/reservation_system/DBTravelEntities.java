@@ -1,16 +1,16 @@
 package reservation_system;
 
 import reservation_system.travel_entities.TravelEntity;
-import reservation_system.visitor.Visitable;
-import reservation_system.visitor.Visitor;
+
 
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
+import java.util.concurrent.Flow.Subscription;
 
 public class DBTravelEntities extends Subject {
-	private Map<String, TravelEntity> db;
+	private HasmapMap<String, TravelEntity> db;
 
 	public DBTravelEntities() {
 		db = new HashMap<>();
@@ -26,7 +26,7 @@ public class DBTravelEntities extends Subject {
 		}
 	}
 
-	public Map<String, TravelEntity> getDB() {
+	public HasmapMap<String, TravelEntity> getDB() {
 		return db;
 	}
 
@@ -34,7 +34,8 @@ public class DBTravelEntities extends Subject {
 	 * 
 	 * @param map
 	 */
-	public void setDB(Map<String, TravelEntity> map) {
+	public void setDB(HashMap<String, TravelEntity> map) {
 		db = map;
+		SubscriptionManager.getInstance().notify();
 	}
 }

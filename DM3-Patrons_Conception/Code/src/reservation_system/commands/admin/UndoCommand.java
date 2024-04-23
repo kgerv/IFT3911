@@ -1,7 +1,6 @@
 package reservation_system.commands.admin;
 
 import reservation_system.commands.Command;
-import reservation_system.users.controller.admin.Admin;
 import reservation_system.users.ui.GUI;
 
 import java.util.List;
@@ -20,5 +19,4 @@ public class UndoCommand implements Command {
 
     @Override
     public void undo() { } // Need to add redo for this
-}
 }

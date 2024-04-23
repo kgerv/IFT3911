@@ -1,84 +1,97 @@
 package reservation_system.users.controller.admin;
 
 import reservation_system.Controller;
-import reservation_system.commands.Command;
 import reservation_system.travel_entities.*;
 import reservation_system.DBTravelEntities;
 import reservation_system.Subject;
-import reservation_system.users.ui.GUI;
-import reservation_system.visitor.Visitor;
 
+import reservation_system.commands.Command;
+
+import reservation_system.users.ui.GUI;
+import reservation_system.visitor.AdminVisitor;
+import reservation_system.visitor.Visitor;
+import java.util.Scanner;
 import java.util.List;
 
-public class Admin extends Controller {
+public class Admin {
 
 	private List<Command> commands;
 	private AdminInterest interest;
 	private TravelEntityFactory factory;
-	private GUI view;
+	private AdminVisitor visitor;
+	private List<String> args;
 
-	public Admin(GUI g, Visitor v, AdminInterest i) {
-		super(g, v);
-		this.interest = i;
+	public Admin() {
+		
+	}
+
+	private void displayTravel() {
+		TravelManager manager = new TravelManager();
+		//itérateur sur les voyages
+		List<TravelEntity> travels = manager.get();
+
+		for(TravelEntity travel : travels){
+			System.out.println(travel);
+		}
 
 	}
 
-	private List<String> displayTravel() {
-		// TODO - implement Admin.displayTravel
-		throw new UnsupportedOperationException();
+	public void addCompany(List<String> args) {
+		
+		interest.addCompany(args);
 	}
 
-	public void addCompany() {
-		interest.addCompany();
+	public void editCompany(List<String> args) {
+		interest.editCompany(args);
+
 	}
 
-	public void editCompany() {
-		interest.editCompany();
+	public void deleteCompany(List<String> args) {
+		interest.deleteCompany(args);
 	}
 
-	public void deleteCompany() {
-		interest.deleteCompany();
+	public void addTravel(List<String> args) {
+		interest.addTravel(args);
+	}	
+
+	public void editTravel(List<String> args) {
+		interest.editTravel(args);
 	}
 
-	public void addTravel() {
-		interest.addTravel();
+	public void deleteTravel(List<String> args) {
+		interest.deleteTravel(args);
 	}
 
-	public void editTravel() {
-		interest.editTravel();
+	public void addFacility(List<String> args) {
+		interest.addFacility(args);
 	}
 
-	public void deleteTravel() {
-		interest.deleteTravel();
+	public void editFacility(List<String> args) {
+		interest.editFacility(args);
 	}
 
-	public void addFacility() {
-		interest.addFacility();
+	public void deleteFacility(List<String> args) {
+		interest.deleteFacility(args);
 	}
 
-	public void editFacility() {
-		interest.editFacility();
+	public void assignPriceToSection(List<String> args) {
+		interest.assignPriceToSection(args);
 	}
 
-	public void deleteFacility() {
-		interest.deleteFacility();
+	public void displayTravelByOrigin(String origin) {
+		interest.displayTravelByOrigin(origin);
 	}
 
-	public void assignPriceToSection() {
-		interest.assignPriceToSection();
+	public void displayTravelByDestination(String destination) {
+		interest.displayTravelByDestination(destination);
+
 	}
 
-	public void displayTravelByOrigin() {
-		interest.displayTravelByOrigin();
+	public void displayTravelByCompany(String company) {
+		interest.displayTravelByCompany(company);
+
 	}
 
-	public void displayTravelByDestination() {
-		interest.displayTravelByDestination();
-	}
-
-	public void displayTravelByCompany() {
-		interest.displayTravelByCompany();
-	}
 
 	/**
 	 *
@@ -86,6 +99,10 @@ public class Admin extends Controller {
 	 */
 	public void setInterest(AdminInterest i) {
 		this.interest = i;
+	}
+
+	public AdminInterest getInterest() {
+		return this.interest;
 	}
 
 	/**

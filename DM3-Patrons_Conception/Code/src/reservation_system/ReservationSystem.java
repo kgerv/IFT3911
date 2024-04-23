@@ -4,9 +4,11 @@ import reservation_system.commands.Command;
 import reservation_system.commands.admin.AddCompanyCommand;
 import reservation_system.users.ui.admin.AdminGUI;
 import reservation_system.users.ui.client.ClientGUI;
+import reservation_system.users.controller.admin.Admin;
 import reservation_system.users.ui.GUI;
 
 import java.util.Scanner;
+import reservation_system.users.controller.admin.Admin;
 
 public class ReservationSystem {
 

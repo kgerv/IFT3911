@@ -1,8 +1,14 @@
 package reservation_system.travel_entities;
 
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+import reservation_system.DBTravelEntities;
+
+
 public class CompanyManager implements TravelEntityManager {
     @Override
-    public void add() {
+    public void add(TravelEntity e) {
 
     }
 
@@ -13,6 +19,22 @@ public class CompanyManager implements TravelEntityManager {
 
     @Override
     public void delete(TravelEntity e) {
+
+    }
+
+    @Override
+    public List<TravelEntity> get() {
+        List<TravelEntity> companies = new ArrayList<TravelEntity>();
+        DBTravelEntities db = new DBTravelEntities();
+        HashMap<String,TravelEntity> state = db.getState();
+        
+        //récupérer les companies
+        for (String key : state.keySet()) {
+            if (state.get(key) instanceof Company) {
+                companies.add(state.get(key));
+            }
+        }
+        return companies;
 
     }
 }
