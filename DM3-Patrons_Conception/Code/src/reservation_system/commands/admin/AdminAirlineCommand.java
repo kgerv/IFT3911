@@ -14,7 +14,7 @@ public class AdminAirlineCommand implements Command {
 
     @Override
     public void execute() {
-        this.receiver.stateManager(new AdminGUIAirline());
+        this.receiver.stateManager(new AdminGUIAirline(receiver));
     }
 
     /**

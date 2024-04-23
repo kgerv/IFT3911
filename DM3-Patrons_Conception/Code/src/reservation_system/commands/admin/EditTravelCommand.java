@@ -5,7 +5,7 @@ import reservation_system.users.controller.admin.Admin;
 import java.util.List;
 
 public class EditTravelCommand extends AdminCommand {
-    public EditTravelCommand(List<String> args, Admin admin) {
+    public EditTravelCommand(List<String> strings, List<String> args, Admin admin) {
         super(args, admin);
     }
 

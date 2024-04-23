@@ -74,19 +74,13 @@ public class Admin extends Controller {
 		interest.assignPriceToSection(args);
 	}
 
-	public void displayTravelByOrigin(String origin) {
+	public void displayTravelByOrigin(List<String> origin) {
 		interest.displayTravelByOrigin(origin);
 	}
 
-	public void displayTravelByDestination(String destination) {
-		interest.displayTravelByDestination(destination);
+	public void displayTravelByDestination(List<String> destination) { interest.displayTravelByDestination(destination); }
 
-	}
-
-	public void displayTravelByCompany(String company) {
-		interest.displayTravelByCompany(company);
-
-	}
+	public void displayTravelByCompany(List<String> company) { interest.displayTravelByCompany(company); }
 
 
 	/**

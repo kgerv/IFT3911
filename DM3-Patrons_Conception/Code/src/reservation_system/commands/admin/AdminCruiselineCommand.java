@@ -14,7 +14,7 @@ public class AdminCruiselineCommand implements Command {
 
     @Override
     public void execute() {
-        this.receiver.stateManager(new AdminGUICruise());
+        this.receiver.stateManager(new AdminGUICruise(receiver));
     }
 
     /**

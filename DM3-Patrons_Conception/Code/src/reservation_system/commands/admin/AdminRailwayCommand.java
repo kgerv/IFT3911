@@ -14,7 +14,7 @@ public class AdminRailwayCommand implements Command {
 
     @Override
     public void execute() {
-        this.receiver.stateManager(new AdminGUIRailway());
+        this.receiver.stateManager(new AdminGUIRailway(receiver));
     }
 
     /**

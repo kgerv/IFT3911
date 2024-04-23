@@ -30,10 +30,10 @@ public interface AdminInterest {
 
 	void assignPriceToSection(List<String> args);
 
-	void displayTravelByOrigin(String origin);
+	void displayTravelByOrigin(List<String> origin);
 
-	void displayTravelByDestination(String destination);
+	void displayTravelByDestination(List<String> destination);
 
-	void displayTravelByCompany(String company);
+	void displayTravelByCompany(List<String> company);
 
 }

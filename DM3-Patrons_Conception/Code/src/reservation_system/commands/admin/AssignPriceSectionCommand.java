@@ -18,7 +18,7 @@ public class AssignPriceSectionCommand extends AdminCommand {
 
     @Override
     public void undo() {
-        this.args.set(, "NaN");
+        this.args.set(1, "NaN");
         this.admin.assignPriceToSection(args);
     }
 }

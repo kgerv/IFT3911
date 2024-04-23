@@ -5,12 +5,15 @@ import reservation_system.users.controller.admin.Admin;
 import java.util.List;
 
 public class AddTravelCommand extends AdminCommand {
-    public AddTravelCommand(List<String> args, Admin admin) {
+    private List<String> facilities;
+
+    public AddTravelCommand(List<String> args, List<String> facilities, Admin admin) {
         super(args, admin);
+        this.facilities = facilities;
     }
 
     @Override
-    public void execute() { this.admin.addTravel(args); }
+    public void execute() { this.admin.addTravel(args, facilities); }
 
     @Override
     public void undo() { this.admin.deleteTravel(args); }
