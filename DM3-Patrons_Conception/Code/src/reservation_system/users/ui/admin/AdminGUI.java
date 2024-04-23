@@ -18,19 +18,15 @@ public class AdminGUI extends Observer implements GUI {
 	}
 
 	@Override
-	public void display() {
-
-	}
+	public void display() {}
 
 	@Override
-	public void cancel() {
-
-	}
+	public void cancel() {}
 
 	@Override
 	public void undo() { } // Nothing to undo
 
-	public void displayManager(AdminGUIState s) {
+	public void stateManager(AdminGUIState s) {
 		this.state = s;
 	}
 

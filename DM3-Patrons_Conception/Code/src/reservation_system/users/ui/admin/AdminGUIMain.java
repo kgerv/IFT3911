@@ -67,7 +67,5 @@ public class AdminGUIMain implements AdminGUIState {
     }
 
     @Override
-    public void updateKeywords(AdminGUI g) {
-
-    }
+    public void updateKeywords(AdminGUI g) {} // No keyword used for this view
 }

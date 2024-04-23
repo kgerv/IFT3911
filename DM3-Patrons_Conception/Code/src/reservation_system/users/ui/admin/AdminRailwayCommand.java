@@ -11,7 +11,7 @@ public class AdminRailwayCommand implements Command {
 
     @Override
     public void execute() {
-        this.receiver.displayManager(new AdminGUIRailway());
+        this.receiver.stateManager(new AdminGUIRailway());
     }
 
     /**
@@ -19,6 +19,6 @@ public class AdminRailwayCommand implements Command {
      */
     @Override
     public void undo() {
-        this.receiver.displayManager(new AdminGUIMain(receiver));
+        this.receiver.stateManager(new AdminGUIMain(receiver));
     }
 }

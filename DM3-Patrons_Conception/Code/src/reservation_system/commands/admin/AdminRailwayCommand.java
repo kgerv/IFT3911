@@ -2,18 +2,18 @@ package reservation_system.commands.admin;
 
 import reservation_system.commands.Command;
 import reservation_system.users.ui.admin.AdminGUI;
-import reservation_system.users.ui.admin.AdminGUIAirline;
+import reservation_system.users.ui.admin.AdminGUIRailway;
 
-public class AdminAirlineCommand implements Command {
+public class AdminRailwayCommand implements Command {
     private AdminGUI receiver;
 
-    public AdminAirlineCommand(AdminGUI view) {
+    public AdminRailwayCommand(AdminGUI view) {
         this.receiver = view;
     }
 
     @Override
     public void execute() {
-        this.receiver.stateManager(new AdminGUIAirline());
+        this.receiver.stateManager(new AdminGUIRailway());
     }
 
     @Override

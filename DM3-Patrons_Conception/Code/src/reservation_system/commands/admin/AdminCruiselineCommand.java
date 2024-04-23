@@ -2,17 +2,18 @@ package reservation_system.commands.admin;
 
 import reservation_system.commands.Command;
 import reservation_system.users.ui.admin.AdminGUI;
+import reservation_system.users.ui.admin.AdminGUICruise;
 
 public class AdminCruiselineCommand implements Command {
-    private AdminGUI view;
+    private AdminGUI receiver;
 
-    public AdminCruiselineCommand(AdminGUI v) {
-        this.view = v;
+    public AdminCruiselineCommand(AdminGUI view) {
+        this.receiver = view;
     }
 
     @Override
     public void execute() {
-        this.view.displayManager(new );
+        this.receiver.stateManager(new AdminGUICruise());
     }
 
     @Override
