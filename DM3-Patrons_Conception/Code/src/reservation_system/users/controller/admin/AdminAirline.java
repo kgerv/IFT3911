@@ -62,7 +62,7 @@ public class AdminAirline implements AdminInterest {
 
     @Override
     public void editTravel(List<String> args) {
-
+        
     }
 
     @Override

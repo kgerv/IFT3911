@@ -1,46 +1,85 @@
 package reservation_system.users.ui.admin;
 
+import java.util.Scanner;
+
 import reservation_system.Subject;
 import reservation_system.users.controller.Observer;
 import reservation_system.users.controller.admin.Admin;
+import reservation_system.users.controller.admin.AdminAirline;
+import reservation_system.users.controller.admin.AdminCruiseline;
+import reservation_system.users.controller.admin.AdminRailway;
 import reservation_system.users.ui.GUI;
 
 public class AdminGUI extends Observer implements GUI {
 
-	private Admin controller;
+	private Admin admin;
+	private boolean isConnected = false;
 
-<<<<<<< HEAD:DM3-Patrons_Conception/Code/src/ReservationSystem/Users/UI/Admin/AdminGUI.java
-	public AdminGUI() {
-=======
-	public AdminGUI(Admin controller) {
-		this.controller = controller;
->>>>>>> 7761c6a6ab2489b027e879ff46de94a5859404d6:DM3-Patrons_Conception/Code/src/reservation_system/users/ui/admin/AdminGUI.java
+	public AdminGUI(Admin admin) {
+		this.admin = admin;
 	}
 
 	/**
 	 * 
 	 * @param e
 	 */
-	public void listen(Event e) {
-		// TODO - implement ReservationSystem.User.UI.Admin.AdminGUI.listen
-		throw new UnsupportedOperationException();
-	}
 
 	@Override
 	public void display() {
+		admin.getInterest().display();
+	}
 
+	public void displayAdmin() {
+		Scanner scan = new Scanner(System.in);  // Create a Scanner object
+		System.out.println("Admin GUI");
+		System.out.println("1. Manage Airline Companies");
+		System.out.println("2. Manage Cruise Companies");
+		System.out.println("3. Manage Train Companies");
+		System.out.println("0. Exit");
+
+		String choice = scan.nextLine();
+
+		switch(choice) {
+			case "0":
+				System.exit(0);
+			case "1":
+				buttonAirEntities();
+				break;
+			case "2":
+				buttonCruiseEntities();
+				break;
+			case "3":
+				buttonTrainEntities();
+				break;
+			default:
+				System.out.println("Invalid choice");
+		}
 	}
 
 	public void displayManager() {
-		// TODO - implement ReservationSystem.User.UI.Admin.AdminGUI.displayManager
-		throw new UnsupportedOperationException();
+		if(!isConnected){
+			displayAdmin();
+		}
+		else{
+			display();
+		}
 	}
 
-	// change state of view between types
-
-	private buttonAirEntities(){}
-	private buttonCruiseEntities(){}
-	private buttonTrainEntities(){}
+	private void buttonAirEntities(){
+		AdminAirline adminAirline = new AdminAirline();
+		admin.setInterest(adminAirline);
+		isConnected = true;
+	}
+	private void buttonCruiseEntities(){
+		AdminCruiseline adminCruiseline = new AdminCruiseline();
+		admin.setInterest(adminCruiseline);
+		isConnected = true;
+	}
+	private void buttonTrainEntities(){
+		AdminRailway adminRailway = new AdminRailway();
+		admin.setInterest(adminRailway);
+		isConnected = true;
+	}
 
 	@Override
 	public void update(Subject s) {

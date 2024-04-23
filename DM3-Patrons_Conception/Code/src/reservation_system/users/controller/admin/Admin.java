@@ -43,8 +43,8 @@ public class Admin implements Visitor, Controller {
 		throw new UnsupportedOperationException();
 	}
 
-	public void addCompany() {
-
+	public void addCompany(List<String> args) {
+		interest.addCompany(args);
 	}
 
 	public void editCompany() {
@@ -101,6 +101,10 @@ public class Admin implements Visitor, Controller {
 	 */
 	public void setInterest(AdminInterest i) {
 		this.interest = i;
+	}
+
+	public AdminInterest getInterest() {
+		return this.interest;
 	}
 
 	/**
